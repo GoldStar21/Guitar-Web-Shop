@@ -39,3 +39,15 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Spring Boot backend (ako koristiš Maven/Gradle)
+backend/target/
+
+# IntelliJ IDEA
+.idea/
+
+# JetBrains IDE (ako koristiš)
+*.iml
+
+# General
+*.log
