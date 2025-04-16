@@ -1,0 +1,84 @@
+@use "../styles/mixins" as *;
+
+.header {
+  background-image: url("/image-hero-background.png");
+  background-repeat: repeat;
+  background-size: auto;
+  height: 100vh;
+}
+
+.header_container {
+  margin: auto;
+  overflow: hidden;
+  padding: 0 20px;
+  position: relative;
+  max-width: 1500px;
+}
+
+.under_container_div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70vh;
+  width: 100%;
+
+  @include respondBetween($max: 768px) {
+    flex-direction: column;
+  }
+  @include respondBetween($max: 375px) {
+    height: 70vh;
+  }
+  @include respondBetween($min: 375px, $max: 425px) {
+    height: 80vh;
+  }
+  @include respondBetween($min: 425px, $max: 768px) {
+    height: 80vh;
+  }
+}
+
+.left_side_text {
+  flex: 1;
+
+  @include respondBetween($max: 768px) {
+    padding: 10px;
+  }
+}
+
+.right_side_image {
+  flex: 1;
+  position: relative;
+  height: 80vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.header_title {
+  text-align: center;
+  font-size: 35px;
+
+  @include respondBetween($max: 375px) {
+    font-size: 35px;
+  }
+  @include respondBetween($min: 375px, $max: 425px) {
+    font-size: 44px;
+  }
+  @include respondBetween($min: 425px, $max: 768px) {
+    font-size: 44px;
+  }
+}
+
+.text {
+  text-align: center;
+  font-size: 25px;
+  font-weight: 500;
+
+  @include respondBetween($max: 375px) {
+    font-size: 18px;
+  }
+  @include respondBetween($min: 375px, $max: 425px) {
+    font-size: 20px;
+  }
+  @include respondBetween($min: 425px, $max: 768px) {
+    font-size: 22px;
+  }
+}

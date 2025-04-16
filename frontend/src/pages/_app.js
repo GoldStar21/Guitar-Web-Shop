@@ -1,4 +1,5 @@
-import "@/styles/globals.css";
+import '../styles/global.scss';
+
 import { Manuale } from 'next/font/google';
 
 const manuale = Manuale({ subsets: ['latin'] });

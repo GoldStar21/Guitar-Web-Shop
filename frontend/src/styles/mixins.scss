@@ -1,0 +1,17 @@
+@mixin respondBetween($min: null, $max: null) {
+  @if $min != null and $max != null {
+    @media screen and (min-width: $min) and (max-width: $max) {
+      @content;
+    }
+  } @else if $min != null {
+    @media screen and (min-width: $min) {
+      @content;
+    }
+  } @else if $max != null {
+    @media screen and (max-width: $max) {
+      @content;
+    }
+  } @else {
+    @warn "respondBetween mixin requires at least one parameter: $min or $max.";
+  }
+}

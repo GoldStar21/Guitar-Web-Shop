@@ -1,25 +1,47 @@
-import styles from './Navbar.module.css';
+import { useState } from "react";
 import Link from "next/link";
-import Image from 'next/image';
+import Image from "next/image";
+import styles from "./Navbar.module.scss";
 
 export default function Navbar() {
-  return (
-    
-    <nav className={styles.navbar}>
+  const [isOpen, setIsOpen] = useState(false);
 
-     {/* Logo */}
-     <div className={styles.logo}>
-        <Image src="/logo.svg" alt="Logo" width={80} height={80} />
+  return (
+    <nav className={styles.navigationbar}>
+      <div className={styles.logo}>
+        <div className={styles.logoImage}>
+          <Image src="/logo_image.svg" alt="Logo" fill />
+        </div>
         <h1>Guitar Heaven</h1>
       </div>
 
-      {/* Links */}
-      <div className={styles.links}>
-        <Link href="/">ABOUT US</Link>
-        <Link href="/products">SHOP</Link>
-        <Link href="/about">FAQ</Link>
-        <Link href="/contact">CONTACT</Link>
-        <Link href="/contact">Login</Link>
+      <button
+        className={`${styles.hamburger} ${isOpen ? styles.open : ""}`}
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        <span className={styles.bar}></span>
+        <span className={styles.bar}></span>
+        <span className={styles.bar}></span>
+      </button>
+
+      <div
+        className={`${styles.navigationbar_links} ${isOpen ? styles.open : ""}`}
+      >
+        <Link href="/" onClick={() => setIsOpen(false)}>
+          ABOUT US
+        </Link>
+        <Link href="/products" onClick={() => setIsOpen(false)}>
+          SHOP
+        </Link>
+        <Link href="/about" onClick={() => setIsOpen(false)}>
+          FAQ
+        </Link>
+        <Link href="/contact" onClick={() => setIsOpen(false)}>
+          CONTACT
+        </Link>
+        <Link href="/login" onClick={() => setIsOpen(false)}>
+          LOGIN
+        </Link>
       </div>
     </nav>
   );

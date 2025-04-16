@@ -1,0 +1,32 @@
+.section {
+    background-color: white;
+    height: 100vh;
+}
+
+.container {
+    margin: auto;
+    overflow: hidden;
+    padding: 0 20px;
+    position: relative;
+    max-width: 1500px;
+}
+
+.under_container_div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.textWrapper {
+    flex: 2;
+}
+
+.imageWrapper {
+flex: 1;
+position: relative;
+height: 65vh;
+width: 100%;
+overflow: hidden;
+border-radius: 55px;
+border: black solid
+}
