@@ -16,7 +16,9 @@ export default function Navbar() {
       </div>
 
       <button
-        className={`${styles.navigationbar__hamburger} ${isOpen ? styles.open : ""}`}
+        className={`${styles.navigationbar__hamburger} ${
+          isOpen ? styles.open : ""
+        }`}
         onClick={() => setIsOpen(!isOpen)}
       >
         <span className={styles.navigationbar__bar}></span>
@@ -36,7 +38,7 @@ export default function Navbar() {
         <Link href="#faq" onClick={() => setIsOpen(false)}>
           FAQ
         </Link>
-        <Link href="/contact" onClick={() => setIsOpen(false)}>
+        <Link href="#contact" onClick={() => setIsOpen(false)}>
           CONTACT
         </Link>
         <Link href="/login" onClick={() => setIsOpen(false)}>

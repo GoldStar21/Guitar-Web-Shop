@@ -1,5 +1,39 @@
-@use "../styles/mixins" as *; 
+@use "../styles/mixins" as mix;
 
 .contact {
-    @include background;
+  @include mix.background;
+
+  &__container {
+    @include mix.container;
+    padding-bottom: 3rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__title {
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+
+    @include mix.respondBetween($min: 320px, $max: 480px) {
+      font-size: 23px;
+    }
+  }
+
+  &__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 12px;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s ease;
+    max-width: 400px;
+    min-width: 180px;
+  }
+  &__text {
+    font-size: 20px;
+    text-align: center;
+  }
 }

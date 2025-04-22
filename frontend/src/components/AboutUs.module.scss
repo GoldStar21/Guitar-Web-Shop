@@ -10,7 +10,6 @@
 
   &__container {
     @include mix.container;
-
   }
 
   &__title {
@@ -72,11 +71,11 @@
     @include mix.respondBetween($max: 768px) {
       width: 100%;
       height: auto;
-      aspect-ratio: 16 / 9; // Promeni ako želiš drugačiji odnos
+      aspect-ratio: 16 / 9;
     }
 
     @include mix.respondBetween($max: 480px) {
-      aspect-ratio: 1 / 1; // Kvadratna slika na najmanjim uređajima
+      aspect-ratio: 1 / 1;
     }
   }
 }
