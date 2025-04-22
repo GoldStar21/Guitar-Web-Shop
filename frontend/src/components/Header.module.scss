@@ -1,84 +1,65 @@
-@use "../styles/mixins" as *;
+@use "../styles/mixins" as mix;
 
 .header {
-  background-image: url("/image-hero-background.png");
-  background-repeat: repeat;
-  background-size: auto;
-  height: 100vh;
-}
+  @include mix.background;
 
-.header_container {
-  margin: auto;
-  overflow: hidden;
-  padding: 0 20px;
-  position: relative;
-  max-width: 1500px;
-}
-
-.under_container_div {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 70vh;
-  width: 100%;
-
-  @include respondBetween($max: 768px) {
-    flex-direction: column;
+  &__container {
+    @include mix.container;
   }
-  @include respondBetween($max: 375px) {
+
+  &__content {
+    @include mix.content;
+
+    @include mix.respondBetween($max: 768px) {
+      flex-direction: column;
+    }
+  }
+
+  &__content__image {
+    flex: 1;
+    position: relative;
     height: 70vh;
+    width: 100%;
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+
+    @include mix.respondBetween($max: 768px) {
+      aspect-ratio: 4 / 3; 
+    }
   }
-  @include respondBetween($min: 375px, $max: 425px) {
-    height: 80vh;
+
+  &__content__text {
+    flex: 1;
+    text-align: center;
+
+    @include mix.respondBetween($max: 768px) {
+      padding: 10px;
+    }
   }
-  @include respondBetween($min: 425px, $max: 768px) {
-    height: 80vh;
-  }
-}
 
-.left_side_text {
-  flex: 1;
-
-  @include respondBetween($max: 768px) {
-    padding: 10px;
-  }
-}
-
-.right_side_image {
-  flex: 1;
-  position: relative;
-  height: 80vh;
-  width: 100%;
-  overflow: hidden;
-}
-
-.header_title {
-  text-align: center;
-  font-size: 35px;
-
-  @include respondBetween($max: 375px) {
+  &__title {
     font-size: 35px;
-  }
-  @include respondBetween($min: 375px, $max: 425px) {
-    font-size: 44px;
-  }
-  @include respondBetween($min: 425px, $max: 768px) {
-    font-size: 44px;
-  }
-}
 
-.text {
-  text-align: center;
-  font-size: 25px;
-  font-weight: 500;
+    @include mix.respondBetween($max: 375px) {
+      font-size: 31px;
+    }
+    @include mix.respondBetween($min: 375px, $max: 768px) {
+      font-size: 44px;
+    }
+  }
 
-  @include respondBetween($max: 375px) {
-    font-size: 18px;
-  }
-  @include respondBetween($min: 375px, $max: 425px) {
-    font-size: 20px;
-  }
-  @include respondBetween($min: 425px, $max: 768px) {
-    font-size: 22px;
+  &__text {
+    font-size: 25px;
+    font-weight: 500;
+
+    @include mix.respondBetween($max: 375px) {
+      font-size: 18px;
+    }
+    @include mix.respondBetween($min: 375px, $max: 425px) {
+      font-size: 20px;
+    }
+    @include mix.respondBetween($min: 425px, $max: 768px) {
+      font-size: 22px;
+    }
   }
 }

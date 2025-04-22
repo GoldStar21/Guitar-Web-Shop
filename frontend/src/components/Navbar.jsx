@@ -8,32 +8,32 @@ export default function Navbar() {
 
   return (
     <nav className={styles.navigationbar}>
-      <div className={styles.logo}>
-        <div className={styles.logoImage}>
+      <div className={styles.navigationbar__logo}>
+        <div className={styles.navigationbar__image}>
           <Image src="/logo_image.svg" alt="Logo" fill />
         </div>
         <h1>Guitar Heaven</h1>
       </div>
 
       <button
-        className={`${styles.hamburger} ${isOpen ? styles.open : ""}`}
+        className={`${styles.navigationbar__hamburger} ${isOpen ? styles.open : ""}`}
         onClick={() => setIsOpen(!isOpen)}
       >
-        <span className={styles.bar}></span>
-        <span className={styles.bar}></span>
-        <span className={styles.bar}></span>
+        <span className={styles.navigationbar__bar}></span>
+        <span className={styles.navigationbar__bar}></span>
+        <span className={styles.navigationbar__bar}></span>
       </button>
 
       <div
         className={`${styles.navigationbar_links} ${isOpen ? styles.open : ""}`}
       >
-        <Link href="/" onClick={() => setIsOpen(false)}>
+        <Link href="#about" onClick={() => setIsOpen(false)}>
           ABOUT US
         </Link>
-        <Link href="/products" onClick={() => setIsOpen(false)}>
+        <Link href="#shop" onClick={() => setIsOpen(false)}>
           SHOP
         </Link>
-        <Link href="/about" onClick={() => setIsOpen(false)}>
+        <Link href="#faq" onClick={() => setIsOpen(false)}>
           FAQ
         </Link>
         <Link href="/contact" onClick={() => setIsOpen(false)}>

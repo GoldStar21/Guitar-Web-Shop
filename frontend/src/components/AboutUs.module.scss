@@ -1,32 +1,82 @@
-.section {
-    background-color: white;
-    height: 100vh;
-}
+@use "../styles/mixins" as mix;
 
-.container {
-    margin: auto;
-    overflow: hidden;
-    padding: 0 20px;
-    position: relative;
-    max-width: 1500px;
-}
+.about__us {
+  background-color: white;
 
-.under_container_div {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+  @include mix.respondBetween($max: 768px) {
+    height: auto;
+    padding: 2rem 0;
+  }
 
-.textWrapper {
+  &__container {
+    @include mix.container;
+
+  }
+
+  &__title {
+    font-size: 29px;
+    text-align: center;
+
+    @include mix.respondBetween($max: 480px) {
+      font-size: 24px;
+    }
+  }
+
+  &__under__content {
+    @include mix.content;
+    gap: 1rem;
+    margin-top: 4rem;
+    align-items: stretch;
+    margin-bottom: 4rem;
+
+    @include mix.respondBetween($min: 320px, $max: 768px) {
+      flex-direction: column;
+    }
+  }
+
+  &__text {
     flex: 2;
-}
+    text-align: center;
+    line-height: 1.8;
+    font-size: 20px;
+    font-weight: 400;
+    padding: 2rem;
+    background-image: url("/image-hero-background.png");
+    background-repeat: repeat;
+    background-size: auto;
+    border-radius: 15px;
+    max-height: 65vh;
 
-.imageWrapper {
-flex: 1;
-position: relative;
-height: 65vh;
-width: 100%;
-overflow: hidden;
-border-radius: 55px;
-border: black solid
+    @include mix.respondBetween($max: 768px) {
+      font-size: 18px;
+      max-height: none;
+    }
+  }
+
+  &__sign {
+    font-size: 30px;
+    text-align: end;
+
+    @include mix.respondBetween($max: 480px) {
+      text-align: center;
+      font-size: 24px;
+    }
+  }
+
+  &__image {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+
+    @include mix.respondBetween($max: 768px) {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 9; // Promeni ako želiš drugačiji odnos
+    }
+
+    @include mix.respondBetween($max: 480px) {
+      aspect-ratio: 1 / 1; // Kvadratna slika na najmanjim uređajima
+    }
+  }
 }

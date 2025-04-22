@@ -1,8 +1,11 @@
 import '../styles/global.scss';
 
-import { Manuale } from 'next/font/google';
+import { Manuale, Licorice } from 'next/font/google';
 
 const manuale = Manuale({ subsets: ['latin'] });
+const licorice = Licorice ({ subsets: ['latin'],weight: '400', });
+
+export const licoriceFont = licorice;
 
 export default function App({ Component, pageProps }) {
   return (
