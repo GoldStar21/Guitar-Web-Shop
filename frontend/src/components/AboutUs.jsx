@@ -1,4 +1,4 @@
-import styles from "./AboutUs.module.scss";
+
 import Image from "next/image";
 import { Licorice } from "next/font/google";
 
@@ -7,13 +7,13 @@ const licorice = Licorice({ subsets: ["latin"], weight: "400" });
 export default function AboutUs() {
   return (
     <section id="about" className={styles.about__us}>
-      <div className={styles.about__us__container}>
+      <div className={styles.about-us__container}>
         <div className={styles.about__us__title}>
-          <h1>FOR THOSE ABOUT TO ROCK, WE SALUTE YOU</h1>
+          <h1 className={styles["about-us__heading"]}>FOR THOSE ABOUT TO ROCK, WE SALUTE YOU</h1>
         </div>
         <div className={styles.about__us__under__content}>
           <div className={styles.about__us__text}>
-            <p>
+            <p> className={styles["about-us__description"]}
               At Guitar Heaven, we believe in the magic of music and the power
               of a well-crafted guitar. Our passion is to provide musicians,
               from beginners to professionals, with the finest instruments and

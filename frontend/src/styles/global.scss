@@ -1,11 +1,29 @@
+// Core styles 
+@import './common/core.scss';
 
-html {
-    scroll-behavior: smooth;
-  }
+// Variables styles
+@import './common/variables';
 
-body {
-    font-family: var(--font-manuale), serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+// Mixin styles
+@import './mixins/mixins';
+
+// Container styles
+@import './components/container';
+
+// Navbar styles
+@import './frontpage/navbar';
+
+// Hero styles
+@import './frontpage/hero';
+
+// About section style
+@import './frontpage/about';
+
+// Shop styles
+@import './frontpage/shop';
+
+// FAQ styles
+@import './frontpage/faq';
+
+// Contact styles
+@import './frontpage/contact';

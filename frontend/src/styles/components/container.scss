@@ -1,0 +1,17 @@
+.c-container {
+  box-sizing: border-box;
+  margin: auto;
+  padding: 0 40px;
+  max-width: 1700px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+
+  @include respondBetween(0, $breakpoint-tablet) {
+    padding: 0 24px;
+  }
+
+  @include respondBetween(0, $breakpoint-tablet) {
+    padding: 0 16px;
+  }
+}

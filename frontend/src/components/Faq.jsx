@@ -1,4 +1,4 @@
-import styles from "./Faq.module.scss";
+
 
 export default function FAQ() {
   return (

@@ -1,0 +1,106 @@
+.navbar {
+  margin: 24px 0;
+  border-bottom: 1px solid black;
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+
+    &__logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      &__title {
+        font-size: 25px;
+      }
+    }
+
+    &__links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      &__link {
+        text-decoration: none;
+        padding: 8px;
+        color: black;
+        background-color: $color-blue-button;
+        border-radius: 12px;
+        font-weight: 700;
+
+        transition: background-color 250ms ease-in-out;
+
+        &:hover,
+        &:active,
+        &:focus {
+          background-color: rgba($color-blue-button, 0.7);
+        }
+
+        &--login {
+          background-color: $color-orange-button;
+
+          &:hover,
+          &:active,
+          &:focus {
+            background-color: rgba($color-orange-button, 0.7);
+          }
+        }
+      }
+
+      &__icon {
+        display: none;
+      }
+    }
+
+    &__hamburger {
+      display: none;
+    }
+  }
+
+  @include respondBetween(0, $breakpoint-tablet) {
+    position: relative;
+
+    .c-container {
+      overflow: visible;
+    }
+
+    &__content {
+      &__links {
+        transition: opacity 250ms ease-in-out;
+        opacity: 0;
+        width: 0;
+        height: 0;
+        overflow: hidden;
+
+        &--active {
+          align-items: flex-start;
+          background-color: white;
+          position: absolute;
+          top: -24px;
+          left: -24px;
+          display: flex;
+          flex-direction: column;
+          width: 105%;
+          opacity: 1;
+          height: auto;
+          overflow: visible;
+
+          padding: 64px 0 100dvh 42px;
+
+          .navbar__content__links__icon {
+            position: absolute;
+            top: 64px;
+            right: 42px;
+            cursor: pointer;
+            display: block;
+          }
+        }
+      }
+
+      &__hamburger {
+        display: block;
+      }
+    }
+  }
+}

@@ -1,50 +1,72 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import styles from "./Navbar.module.scss";
 
-export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
+const Navbar = () => {
+  const [isMobileOpen, setIMobileOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIMobileOpen((previousCondition) => !previousCondition);
+  };
+
+  const navLinks = [
+    { href: "/faq", label: "FAQ", className: "", newTab: false },
+    { href: "/about-us", label: "About Us", className: "", newTab: false },
+    { href: "/shop", label: "Shop", className: "", newTab: false },
+    { href: "/contact", label: "Contact", className: "", newTab: false },
+    {
+      href: "/login",
+      label: "Login",
+      className: "navbar__content__links__link--login",
+      newTab: true,
+    },
+  ];
 
   return (
-    <nav className={styles.navigationbar}>
-      <div className={styles.navigationbar__logo}>
-        <div className={styles.navigationbar__image}>
-          <Image src="/logo_image.svg" alt="Logo" fill />
+    <nav className="navbar">
+      <div className="c-container">
+        <div className="navbar__content">
+          <div className="navbar__content__logo">
+            <img
+              src="/logo_image.svg"
+              alt="Logo"
+              className="navbar__content__logo__image"
+            />
+            <h1 className="navbar__content__logo__title">Guitar Heaven</h1>
+          </div>
+          <div
+            className={`navbar__content__links ${
+              isMobileOpen ? "navbar__content__links--active" : ""
+            }`}
+          >
+            {navLinks.map((link, index) => (
+              <Link
+                key={index}
+                href={link.href}
+                className={`navbar__content__links__link ${link.className}`}
+                target={link.newTab ? "_blank" : undefined}
+                rel={link.newTab ? "noopener noreferrer" : undefined}
+              >
+                {link.label}
+              </Link>
+            ))}
+            <img
+              src="/icon-close.svg"
+              alt="Hamburger icon"
+              className="navbar__content__links__icon"
+              onClick={toggleMenu}
+            />
+          </div>
+          <img
+            src="/icon-hamburger.svg"
+            alt="Hamburger icon"
+            className="navbar__content__hamburger"
+            onClick={toggleMenu}
+          />
         </div>
-        <h1>Guitar Heaven</h1>
-      </div>
-
-      <button
-        className={`${styles.navigationbar__hamburger} ${
-          isOpen ? styles.open : ""
-        }`}
-        onClick={() => setIsOpen(!isOpen)}
-      >
-        <span className={styles.navigationbar__bar}></span>
-        <span className={styles.navigationbar__bar}></span>
-        <span className={styles.navigationbar__bar}></span>
-      </button>
-
-      <div
-        className={`${styles.navigationbar_links} ${isOpen ? styles.open : ""}`}
-      >
-        <Link href="#about" onClick={() => setIsOpen(false)}>
-          ABOUT US
-        </Link>
-        <Link href="#shop" onClick={() => setIsOpen(false)}>
-          SHOP
-        </Link>
-        <Link href="#faq" onClick={() => setIsOpen(false)}>
-          FAQ
-        </Link>
-        <Link href="#contact" onClick={() => setIsOpen(false)}>
-          CONTACT
-        </Link>
-        <Link href="/login" onClick={() => setIsOpen(false)}>
-          LOGIN
-        </Link>
       </div>
     </nav>
   );
-}
+};
+
+export default Navbar;
