@@ -50,7 +50,7 @@
 
       &__icon {
         display: none;
-      }
+      } 
     }
 
     &__hamburger {
@@ -74,7 +74,7 @@
         overflow: hidden;
 
         &--active {
-          align-items: flex-start;
+          align-items: center;
           background-color: white;
           position: absolute;
           top: -24px;
@@ -90,8 +90,8 @@
 
           .navbar__content__links__icon {
             position: absolute;
-            top: 64px;
-            right: 42px;
+            top: 60px;
+            right: 70px;
             cursor: pointer;
             display: block;
           }

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 
 const Navbar = () => {
   const [isMobileOpen, setIMobileOpen] = useState(false);
@@ -10,9 +9,9 @@ const Navbar = () => {
   };
 
   const navLinks = [
-    { href: "/faq", label: "FAQ", className: "", newTab: false },
-    { href: "/about-us", label: "About Us", className: "", newTab: false },
-    { href: "/shop", label: "Shop", className: "", newTab: false },
+    { href: "#about", label: "About Us", className: "", newTab: false },
+    { href: "/about-us", label: "Shop", className: "", newTab: false },
+    { href: "/shop", label: "FAQ", className: "", newTab: false },
     { href: "/contact", label: "Contact", className: "", newTab: false },
     {
       href: "/login",

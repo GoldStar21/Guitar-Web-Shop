@@ -14,7 +14,9 @@ const Hero = () => {
               className="hero__content__image"
             />
             <div className="hero__content__right">
-              <h1 className="hero__content__right__title">Welcome to "Guitar Heaven"</h1>
+              <h1 className="hero__content__right__title">
+                Welcome to "Guitar Heaven"
+              </h1>
               <p className="hero__content__right__description">
                 Your search for best guitar shop ends here, but your search for
                 perfect guitar is about to start.

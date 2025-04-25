@@ -12,11 +12,12 @@
     margin: 64px 0;
 
     &__image {
-      width: 48%;
+      width: 40%;
     }
 
     &__right {
-      width: 48%;
+      width: 58%;
+      text-align: center;
 
       &__title {
         font-size: 35px;
@@ -33,26 +34,26 @@
     &__content {
       margin: 32px 0;
 
-      &__right {  
+      &__right {
         &__title {
-          font-size: 26px;
+          font-size: 32px;
         }
-  
+
         &__description {
-          font-size: 20px;
+          font-size: 22px;
         }
       }
     }
   }
 
-  @include respondBetween(0, 620px) {
+  @include respondBetween(0, 700px) {
     &__content {
       flex-direction: column;
-  
+
       &__image {
-        width: 100%;
+        width: 80%;
       }
-  
+
       &__right {
         width: 100%;
         text-align: center;
