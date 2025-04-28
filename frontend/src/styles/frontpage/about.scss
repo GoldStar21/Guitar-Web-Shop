@@ -1,14 +1,12 @@
 .about {
   background-color: white;
 
-  &__container {
-    &__heading {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      font-size: 35px;
-    }
+  &__heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 35px;
   }
 
   &__content {
@@ -45,10 +43,8 @@
   }
 
   @include respondBetween(0, $breakpoint-tablet) {
-    &__container {
-      &__heading {
-        font-size: 24px;
-      }
+    &__heading {
+      font-size: 24px;
     }
 
     &__content {

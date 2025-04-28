@@ -12,6 +12,7 @@ export default function HomePage() {
     <div>
        <Hero/>
        <AboutUs/>
+       <Shop />
     </div>
   );
 }

@@ -1,0 +1,93 @@
+.shop {
+  background-color: white;
+
+  &__heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 35px;
+    padding-bottom: 1rem;
+  }
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  &__card {
+    flex: 1 1 20%;
+    background-color: #c5c2c0;
+    text-align: center;
+    border-radius: 50px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    &__image {
+      width: 70%;
+      object-fit: cover;
+      border-radius: 50px;
+    }
+
+    &__title {
+      padding: 1%;
+      font-size: 1.5rem;
+    }
+  }
+
+  @include respondBetween(0, $breakpoint-tablet) {
+    &__heading {
+      font-size: 24px;
+    }
+
+    &__content {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &__card {
+      width: 65%;
+
+      &__image {
+        width: 65%;
+        object-fit: cover;
+        border-radius: 50px;
+      }
+
+      &__title {
+        padding: 1%;
+        font-size: 25px;
+      }
+    }
+  }
+
+  @include respondBetween(0, 700px) {
+    &__heading {
+      text-align: center;
+    }
+
+    &__card {
+      width: 70%;
+      border-radius: 30px;
+
+      &__image {
+        width: 65%;
+        object-fit: cover;
+        border-radius: 30px;
+      }
+
+      &__title {
+        padding: 1%;
+        font-size: 22px;
+      }
+    }
+  }
+}
