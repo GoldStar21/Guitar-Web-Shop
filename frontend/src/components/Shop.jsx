@@ -30,25 +30,25 @@ const Shop = () => {
   return (
     <section id="shop" className="shop">
       <div className="c-container">
-        <h1 className="shop__heading">Take a look of what we have</h1>
+        <h1 className="shop__heading">TAKE A LOOK OF WHAT WE HAVE</h1>
 
         <div className="shop__content">
-          <a href="/category/electric" className="shop__card">
-            <img
-              src="/acoustic_guitar.jpg"
-              alt="Electric Guitars"
-              className="shop__card__image"
-            />
-            <h3 className="shop__card__title">Electric Guitars</h3>
-          </a>
-
           <a href="/category/acoustic" className="shop__card">
             <img
-              src="/electric_guitar.jpg"
+              src="/acoustic_guitar.jpg"
               alt="Acoustic Guitars"
               className="shop__card__image"
             />
             <h3 className="shop__card__title">Acoustic Guitars</h3>
+          </a>
+
+          <a href="/category/electric" className="shop__card">
+            <img
+              src="/electric_guitar.jpg"
+              alt="Electric Guitars"
+              className="shop__card__image"
+            />
+            <h3 className="shop__card__title">Electric Guitars</h3>
           </a>
 
           <a href="/category/bass" className="shop__card">

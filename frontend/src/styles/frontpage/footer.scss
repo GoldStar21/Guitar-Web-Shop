@@ -1,0 +1,20 @@
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background-color: black;
+    color: white;
+    text-align: center;
+  
+    &__text {
+      margin: 0.5rem 0;
+    }
+  
+    &__github {
+      margin: 0.5rem 0;
+      font-weight: bold;
+    }
+  }
+  

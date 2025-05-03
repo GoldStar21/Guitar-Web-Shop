@@ -1,14 +1,10 @@
-
-
-export default function Contact() {
+const Contact = () => {
   return (
-    <section id="contact" className={styles.contact}>
-      <div className={styles.contact__title}>
-        <h1>Contact information</h1>
-      </div>
-      <div className={styles.contact__container}>
-        <div className={styles.contact__content}>
-          <div className={styles.contact__text}>
+    <section id="contact" className="contact">
+      <div className="c-container">
+        <h2 className="contact__title">CONTACT INFORMATION</h2>
+        <div className="contact__content">
+          <div className="contact__content__text">
             <p>
               Music Shop "Guitar Heaven"
               <br />
@@ -36,4 +32,6 @@ export default function Contact() {
       </div>
     </section>
   );
-}
+};
+
+export default Contact;

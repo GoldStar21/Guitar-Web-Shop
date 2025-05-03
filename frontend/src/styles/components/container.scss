@@ -12,6 +12,6 @@
   }
 
   @include respondBetween(0, $breakpoint-tablet) {
-    padding: 0 16px;
+    padding: 0 18px;
   }
 }

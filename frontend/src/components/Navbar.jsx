@@ -11,8 +11,8 @@ const Navbar = () => {
   const navLinks = [
     { href: "#about", label: "About Us", className: "", newTab: false },
     { href: "#shop", label: "Shop", className: "", newTab: false },
-    { href: "/shop", label: "FAQ", className: "", newTab: false },
-    { href: "/contact", label: "Contact", className: "", newTab: false },
+    { href: "#faq", label: "FAQ", className: "", newTab: false },
+    { href: "#contact", label: "Contact", className: "", newTab: false },
     {
       href: "/login",
       label: "Login",

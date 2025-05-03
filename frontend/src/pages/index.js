@@ -13,6 +13,9 @@ export default function HomePage() {
        <Hero/>
        <AboutUs/>
        <Shop />
+       <FAQ />
+       <Contact />
+       <Footer />
     </div>
   );
 }

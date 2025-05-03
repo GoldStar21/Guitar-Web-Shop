@@ -1,0 +1,96 @@
+.faq {
+
+  padding: 5rem 0;
+
+  &__title {
+    text-align: center;
+    font-size: 35px;
+    padding-bottom: 1rem;
+  }
+
+  &__content {
+    display: flex;
+    gap: 1.5rem;
+
+    // Two rows on wider screens
+    @media (min-width: 768px) {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+  }
+
+  &__item {
+    flex: 1 1 calc(50% - 1rem);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  &__question {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 23px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    padding: 0.75rem 1rem;
+    background-color: white;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 10px;
+    border: 1px solid rgb(233, 231, 231);
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 20px 30px 16px rgba(0, 0, 0, 0.15);
+
+      background-color: #ff991f;
+      transition-duration: 0.5s;
+    }
+  }
+
+  &__icon {
+    font-size: 25px;
+  }
+
+  &__answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+
+    &--open {
+      max-height: 200px;
+    }
+
+    p {
+      margin: 0;
+      padding: 10px 20px;
+      background-color: #fafafa;
+      border-left: 3px solid #ff991f;
+      font-size: 22px;
+    }
+  }
+
+  @include respondBetween(0, $breakpoint-tablet) {
+    &__title {
+      font-size: 24px;
+    }
+
+    &__content {
+      flex-direction: column;
+    }
+  }
+
+  @include respondBetween(0, $breakpoint-mobile) {
+    &__question {
+      font-size: 18px;
+    }
+
+    &__answer {
+      p {
+        font-size: 18px;
+      }
+    }
+  }
+}
