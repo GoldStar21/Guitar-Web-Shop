@@ -4,7 +4,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
-const licorice = Licorice({ subsets: ["latin"], weight: "400" });
+// const licorice = Licorice({ subsets: ["latin"], weight: "400" });
 
 const AboutUs = () => {
   const imageRef = useRef(null);
