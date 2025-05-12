@@ -1,16 +1,42 @@
 import { useState } from "react";
+import { useRouter } from "next/router";
 
 const LoginForm = () => {
   // Definiši stanje za username i password
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const router = useRouter();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Ovdje ćeš kasnije slati podatke backendu
-    // OBRATITI PAZNJU NA OVO KADA SE DO OVOGA DOĐE
-    console.log("Username:", username);
-    console.log("Password:", password);
+
+    const res = await fetch("http://localhost:8080/api/auth/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ username, password }),
+    });
+
+    if (res.ok) {
+      const data = await res.json();
+      const token = data.token;
+      localStorage.setItem("token", token);
+
+      // 🔍 Dekodiraj token i pročitaj rolu
+      const payloadBase64 = token.split(".")[1];
+      const decodedPayload = JSON.parse(atob(payloadBase64));
+      const userRole = decodedPayload.role;
+
+      // 🔀 Preusmjeri na osnovu role
+      if (userRole === "ADMIN") {
+        router.push("/dashboard");
+      } else if (userRole === "EMPLOYEE") {
+        router.push("/dashboardEmployee");
+      } else {
+        router.push("/"); // fallback ako je neka nepoznata rola
+      }
+    } else {
+      alert("Neispravni podaci");
+    }
   };
 
   return (
@@ -41,7 +67,7 @@ const LoginForm = () => {
             Password
           </label>
           <input
-            type="text"
+            type="password"
             id="password"
             className="login__input"
             value={password}
