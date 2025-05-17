@@ -1,51 +1,39 @@
-import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
+import { useState } from "react";
+
+import SideNavbar from "@/components/dashboard components/SideNavbar";
+import NavbarDashboard from "@/components/dashboard components/NavbarDashboard";
+import TableComponent from "@/components/dashboard components/TableComponent";
+import CreateProduct from "@/components/dashboard components/CreateProduct";
 
 const Dashboard = () => {
-  const router = useRouter();
-  const [username, setUsername] = useState(null);
-  const [role, setRole] = useState(null);
+  const [activePage, setActivePage] = useState("dashboard");
 
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-
-    if (!token) {
-      router.push("/login");
-      return;
+  const renderContent = () => {
+    switch (activePage) {
+      case "dashboard":
+        return <TableComponent />;
+      case "viewProduct":
+        return <h2>Welcome to the PornHub!</h2>;
+      case "createProduct":
+        return <CreateProduct />;
+      case "editProduct":
+        return <EditProduct />;
+      case "createEmployee":
+        return <CreateEmployee />;
+      case "logout":
+        // mozes dodati logout logiku ili redirect
+        return <h2>You have been logged out</h2>;
+      default:
+        return <h2>Page not found</h2>;
     }
-
-    try {
-      const payload = JSON.parse(atob(token.split(".")[1]));
-      setUsername(payload.username);
-      setRole(payload.role);
-    } catch (error) {
-      console.error("Neispravan token", error);
-      localStorage.removeItem("token");
-      router.push("/login");
-    }
-  }, []);
-
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    router.push("/login");
   };
 
   return (
-    <div style={{ padding: "2rem" }}>
-      <h1>Dashboard</h1>
-      {username && role ? (
-        <>
-          <p>
-            Dobrodošao, <strong>{username}</strong>! Tvoja uloga je:{" "}
-            <strong>{role}</strong>.
-          </p>
-          <button onClick={handleLogout} style={{ marginTop: "1rem" }}>
-            Logout
-          </button>
-        </>
-      ) : (
-        <p>Učitavanje...</p>
-      )}
+    <div>
+      <NavbarDashboard />
+      <SideNavbar onNavigate={setActivePage} />
+
+      <main className="dashboardMain">{renderContent()}</main>
     </div>
   );
 };

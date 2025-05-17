@@ -1,0 +1,74 @@
+.navbarDashboard {
+  height: 80px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgb(181, 174, 174);
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    &__image {
+      width: 70px;
+      height: 70px;
+      object-fit: contain;
+    }
+  }
+
+  &__title {
+    font-size: 25px;
+    white-space: nowrap;
+  }
+
+  &__search {
+    display: flex;
+    align-items: center;
+
+    input {
+      padding: 6px 12px;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      width: 250px; // Ograničena širina
+      max-width: 100%;
+    }
+
+    &__button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      svg {
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  &__adminImg {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    &__image {
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
+    }
+
+    &__title {
+      font-size: 20px;
+      white-space: nowrap;
+    }
+  }
+}
