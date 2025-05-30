@@ -47,6 +47,7 @@ const SideNavbar = ({ onNavigate }) => {
             <FiEdit className="sidebar__icon" />
             <span>Edit Product</span>
           </div>
+
           <div className="sidebar__logout" onClick={() => onNavigate("logout")}>
             <FiPower className="sidebar__icon" />
             <span>LOG OUT</span>

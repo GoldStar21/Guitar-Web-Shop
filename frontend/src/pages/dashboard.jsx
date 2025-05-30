@@ -4,6 +4,7 @@ import SideNavbar from "@/components/dashboard components/SideNavbar";
 import NavbarDashboard from "@/components/dashboard components/NavbarDashboard";
 import TableComponent from "@/components/dashboard components/TableComponent";
 import CreateProduct from "@/components/dashboard components/CreateProduct";
+import ViewProduct from "@/components/dashboard components/ViewProduct";
 
 const Dashboard = () => {
   const [activePage, setActivePage] = useState("dashboard");
@@ -13,7 +14,7 @@ const Dashboard = () => {
       case "dashboard":
         return <TableComponent />;
       case "viewProduct":
-        return <h2>Welcome to the PornHub!</h2>;
+        return <ViewProduct />;
       case "createProduct":
         return <CreateProduct />;
       case "editProduct":
