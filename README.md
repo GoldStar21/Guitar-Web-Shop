@@ -18,7 +18,7 @@ Welcome page
 ![Guitar Web Shop](./frontend/public/screenshot.png)
 
 Admin panel
-![Guitar Web Shop](./frontend/public/screenshot2.png)
+![Guitar Web Shop](./frontend/public/ScreenshotAdmin.png)
 
 ## DESCRIPTION OF THE APPLICATION
 
