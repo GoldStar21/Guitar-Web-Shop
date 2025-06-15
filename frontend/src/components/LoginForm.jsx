@@ -2,14 +2,16 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 
 const LoginForm = () => {
-  // Definiši stanje za username i password
+  // Declaring variables and hook's
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const router = useRouter();
 
+  // Function that is being called when user/admin click "Login". It prevent's page reload
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Sending login data to the backend
     const res = await fetch("http://localhost:8080/api/auth/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -21,18 +23,18 @@ const LoginForm = () => {
       const token = data.token;
       localStorage.setItem("token", token);
 
-      // 🔍 Dekodiraj token i pročitaj rolu
+      // Token decode and role check
       const payloadBase64 = token.split(".")[1];
       const decodedPayload = JSON.parse(atob(payloadBase64));
       const userRole = decodedPayload.role;
 
-      // 🔀 Preusmjeri na osnovu role
+      // Redirect depending on the role
       if (userRole === "ADMIN") {
         router.push("/dashboard");
       } else if (userRole === "EMPLOYEE") {
         router.push("/dashboardEmployee");
       } else {
-        router.push("/"); // fallback ako je neka nepoznata rola
+        router.push("/");
       }
     } else {
       alert("Neispravni podaci");

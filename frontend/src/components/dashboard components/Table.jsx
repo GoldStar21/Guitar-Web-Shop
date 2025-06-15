@@ -78,30 +78,55 @@ const TableComponent = () => {
         />
       ) : (
         <table className="productTable">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>BRAND</th>
-              <th>MODEL</th>
-              <th>TYPE</th>
-              <th>PRICE</th>
-              <th>AMOUNT</th>
-              <th>ACTIONS</th>
+          <thead className="productTable__thead">
+            <tr className="productTable__tr">
+              <th className="productTable__th">ID</th>
+              <th className="productTable__th">BRAND</th>
+              <th className="productTable__th">MODEL</th>
+              <th className="productTable__th">TYPE</th>
+              <th className="productTable__th">PRICE</th>
+              <th className="productTable__th">AMOUNT</th>
+              <th className="productTable__th">ACTIONS</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="productTable__tbody">
             {products.map((product) => (
-              <tr key={product.id}>
-                <td>{product.id}</td>
-                <td>{product.brand}</td>
-                <td>{product.model}</td>
-                <td>{product.type}</td>
-                <td>{product.price}</td>
-                <td>{product.amount}</td>
-                <td>
-                  <button onClick={() => handleViewClick(product)}>VIEW</button>
-                  <button onClick={() => handleEditClick(product)}>EDIT</button>
-                  <button onClick={() => handleDelete(product.id)}>
+              <tr className="productTable__tr" key={product.id}>
+                <td className="productTable__td" data-label="ID">
+                  {product.id}
+                </td>
+                <td className="productTable__td" data-label="BRAND">
+                  {product.brand}
+                </td>
+                <td className="productTable__td" data-label="MODEL">
+                  {product.model}
+                </td>
+                <td className="productTable__td" data-label="TYPE">
+                  {product.type}
+                </td>
+                <td className="productTable__td" data-label="PRICE">
+                  {product.price}
+                </td>
+                <td className="productTable__td" data-label="AMOUNT">
+                  {product.amount}
+                </td>
+                <td className="productTable__td--actions">
+                  <button
+                    className="productTable__button"
+                    onClick={() => handleViewClick(product)}
+                  >
+                    VIEW
+                  </button>
+                  <button
+                    className="productTable__button"
+                    onClick={() => handleEditClick(product)}
+                  >
+                    EDIT
+                  </button>
+                  <button
+                    className="productTable__button"
+                    onClick={() => handleDelete(product.id)}
+                  >
                     DELETE
                   </button>
                 </td>

@@ -6,6 +6,8 @@
   height: calc(100vh - 81px);
   background-color: white;
   border-right: 1px solid #ccc;
+  transition: transform 0.3s ease-in-out;
+  z-index: 100;
 
   .c-container {
     height: 100%;
@@ -19,7 +21,8 @@
     gap: 20px;
   }
 
-  &__item {
+  &__item,
+  &__logout {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -33,20 +36,46 @@
   }
 
   &__logout {
-    margin-top: auto; 
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-
-    &:hover {
-      background-color: #f0f0f0;
-    }
+    margin-top: auto;
   }
 
   &__icon {
     font-size: 20px;
+  }
+
+  // Mobile hamburger hidden by default
+  @include respondBetween(0, $breakpoint-tablet) {
+    transform: translateX(-100%);
+
+    &.sidebar--open {
+      transform: translateX(0);
+    }
+
+    &__nav {
+      margin-top: 70px;
+      height: 85%;
+    }
+  }
+}
+
+.sidebar__hamburger {
+  position: fixed;
+  top: 90px;
+  left: 10px;
+  z-index: 150;
+  background-color: white;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  display: none;
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  @include respondBetween(0, $breakpoint-tablet) {
+    display: block;
   }
 }

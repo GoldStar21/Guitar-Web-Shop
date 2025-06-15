@@ -1,8 +1,3 @@
-// React icons
-// Klik na lupu možeš kasnije povezati s funkcijom onSearch
-
-import { FiSearch } from "react-icons/fi";
-
 const NavbarDashboard = () => {
   return (
     <nav className="navbarDashboard">
@@ -15,13 +10,6 @@ const NavbarDashboard = () => {
               className="navbarDashboard__logo__image"
             />
             <h1 className="navbarDashboard__title">Guitar Heaven</h1>
-          </div>
-
-          <div className="navbarDashboard__search">
-            <input type="text" placeholder="Search.."></input>
-            <button className="navbarDashboard__search__button">
-              <FiSearch />
-            </button>
           </div>
 
           <div className="navbarDashboard__adminImg">
