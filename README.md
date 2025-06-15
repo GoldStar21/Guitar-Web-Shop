@@ -14,5 +14,12 @@ This appliaction is currently under development.
 - **Auth**: JWT
 
 ## SNEAK PEEK
-
+Welcome page
 ![Guitar Web Shop](./frontend/public/screenshot.png)
+
+Admin panel
+![Guitar Web Shop](./frontend/public/screenshot2.png)
+
+## DESCRIPTION OF THE APPLICATION
+
+The application is designed as a web shop for selling guitars. It also serves as a system for tracking guitar inventory in the warehouse. Administrators have access to all inventory data and can perform standard CRUD operations. Employees can also access the data, but with limited permissions. Customers can browse and purchase products.
