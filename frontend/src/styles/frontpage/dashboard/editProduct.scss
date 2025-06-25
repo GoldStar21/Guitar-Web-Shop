@@ -1,8 +1,7 @@
-.createProduct {
+.editProduct {
   background-color: white;
   border: 1px solid #ccc;
   width: 100%;
-  height: auto;
   border-radius: 5px;
   padding: 30px;
 
@@ -14,7 +13,7 @@
   &__form {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 2rem;
     width: 100%;
     max-width: 500px;
     margin: 0 auto;
@@ -39,13 +38,31 @@
   }
   &__buttons {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    gap: 3rem;
 
-    &__create {
+    &__cancel {
       padding: 0.5rem 1rem;
       border-radius: 8px;
       border: 1px solid #ccc;
+      flex: 1 1 auto;
+      text-align: center;
+      font-size: 15px;
+      transition: background-color 0.6s ease;
+      font-size: 17px;
+      font-weight: 500;
 
+      &:hover {
+        background-color: #cc565e;
+        color: white;
+      }
+    }
+
+    &__save {
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      flex: 1 1 auto;
       text-align: center;
       font-size: 15px;
       transition: background-color 0.6s ease;
@@ -69,7 +86,11 @@
     &__buttons {
       gap: 1.5rem;
 
-      &__create {
+      &__cancel {
+        margin-top: 10px;
+      }
+
+      &__save {
         margin-top: 10px;
       }
     }

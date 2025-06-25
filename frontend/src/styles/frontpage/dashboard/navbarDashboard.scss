@@ -1,6 +1,11 @@
 .navbarDashboard {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   height: 80px;
-  margin: 0;
+  z-index: 200;
+  background-color: white; // da ne bude providan
   display: flex;
   align-items: center;
   border-bottom: 1px solid rgb(181, 174, 174);

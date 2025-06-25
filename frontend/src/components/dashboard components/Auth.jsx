@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
-
+import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-// Skloniti ovaj dio logike u poseban fajl
-const Dashboardtable = () => {
+
+const Auth = () => {
   const router = useRouter();
   const [username, setUsername] = useState(null);
   const [role, setRole] = useState(null);
@@ -30,24 +29,5 @@ const Dashboardtable = () => {
     localStorage.removeItem("token");
     router.push("/login");
   };
-
-  return (
-    <div style={{ padding: "2rem" }}>
-      <h1>Dashboard</h1>
-      {username && role ? (
-        <>
-          <p>
-            Dobrodošao, <strong>{username}</strong>! Tvoja uloga je:{" "}
-            <strong>{role}</strong>.
-          </p>
-          <button onClick={handleLogout} style={{ marginTop: "1rem" }}>
-            Logout
-          </button>
-        </>
-      ) : (
-        <p>Učitavanje...</p>
-      )}
-    </div>
-  );
 };
-export default Dashboardtable;
+export default Auth;

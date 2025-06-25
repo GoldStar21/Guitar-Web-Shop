@@ -1,4 +1,4 @@
-const NavbarDashboard = () => {
+const DashboardNavbar = () => {
   return (
     <nav className="navbarDashboard">
       <div className="c-container">
@@ -26,4 +26,4 @@ const NavbarDashboard = () => {
   );
 };
 
-export default NavbarDashboard;
+export default DashboardNavbar;

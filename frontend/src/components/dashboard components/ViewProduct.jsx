@@ -37,9 +37,13 @@ const ViewProduct = ({ product, onBack }) => {
                 alt={`Product ${currentIndex + 1}`}
                 style={{ width: "300px", height: "auto" }}
               />
-              <div>
-                <button onClick={previousIndex}>Prev</button>
-                <button onClick={handleNext}>Next</button>
+              <div className="viewTable__button">
+                <button className="viewTable__prev" onClick={previousIndex}>
+                  Prev
+                </button>
+                <button className="viewTable__next" onClick={handleNext}>
+                  Next
+                </button>
               </div>
             </>
           ) : (
@@ -48,7 +52,9 @@ const ViewProduct = ({ product, onBack }) => {
         </div>
       </div>
 
-      <button onClick={onBack}>Back</button>
+      <button className="viewTable__back" onClick={onBack}>
+        Back
+      </button>
     </div>
   );
 };

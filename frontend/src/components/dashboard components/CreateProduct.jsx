@@ -51,8 +51,8 @@ const CreateProduct = () => {
 
       // Ako je sve ok resetuj fromu i daj poruku
       if (res.ok) {
-        alert("Proizvod uspješno kreiran!");
-        // Po želji resetuj formu
+        alert("Product created!");
+
         setBrand("");
         setModel("");
         setType("");
@@ -64,7 +64,7 @@ const CreateProduct = () => {
         alert("Greška: " + errorText);
       }
     } catch (err) {
-      console.error("Greška prilikom slanja:", err);
+      console.error("Error:", err);
 
       if (err.response) {
         console.error("Odgovor servera:", await err.response.text());
@@ -84,48 +84,54 @@ const CreateProduct = () => {
             encType="multipart/form-data"
           >
             <div className="createProduct__fields">
-              <label>BRAND:</label>
+              <label className="createProduct__fields__label">BRAND:</label>
               <input
+                className="createProduct__fields__input"
                 type="text"
                 value={brand}
                 onChange={(e) => setBrand(e.target.value)}
               />
             </div>
             <div className="createProduct__fields">
-              <label>MODEL:</label>
+              <label className="createProduct__fields__label">MODEL:</label>
               <input
+                className="createProduct__fields__input"
                 type="text"
                 value={model}
                 onChange={(e) => setModel(e.target.value)}
               />
             </div>
             <div className="createProduct__fields">
-              <label>TYPE:</label>
+              <label className="createProduct__fields__label">TYPE:</label>
               <input
+                className="createProduct__fields__input"
                 type="text"
                 value={type}
                 onChange={(e) => setType(e.target.value)}
               />
             </div>
             <div className="createProduct__fields">
-              <label>PRICE:</label>
+              <label className="createProduct__fields__label">PRICE:</label>
               <input
+                className="createProduct__fields__input"
                 type="text"
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}
               />
             </div>
             <div className="createProduct__fields">
-              <label>AMOUNT:</label>
+              <label className="createProduct__fields__label">AMOUNT:</label>
               <input
+                className="createProduct__fields__input"
                 type="number"
                 value={amount}
                 onChange={(e) => setAmount(e.target.value)}
               />
             </div>
             <div className="createProduct__fields">
-              <label>IMAGES:</label>
+              <label className="createProduct__fields__label">IMAGES:</label>
               <input
+                className="createProduct__fields__input"
                 type="file"
                 multiple
                 accept="image/*"
@@ -133,7 +139,9 @@ const CreateProduct = () => {
               />
             </div>
             <div className="createProduct__buttons">
-              <button type="submit">CREATE</button>
+              <button className="createProduct__buttons__create" type="submit">
+                CREATE
+              </button>
             </div>
           </form>
         </div>

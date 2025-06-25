@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ViewProduct from "./ViewProduct";
+import EditProduct from "./EditProduct";
 
 const TableComponent = () => {
   const [products, setProducts] = useState([]);
@@ -71,7 +72,14 @@ const TableComponent = () => {
   return (
     // Conditional expression that enables opening table and product view section depending on condition
     <>
-      {viewProduct ? (
+      {editingProduct ? (
+        <EditProduct
+          product={editingProduct}
+          onSave={handleEdit}
+          onCancel={() => setEditingProduct(null)}
+          setEditingProduct={setEditingProduct}
+        />
+      ) : viewProduct ? (
         <ViewProduct
           product={viewProduct}
           onBack={() => setViewProduct(null)}
@@ -134,8 +142,6 @@ const TableComponent = () => {
             ))}
           </tbody>
         </table>
-
-        // Edit form "needs to be made"
       )}
     </>
   );

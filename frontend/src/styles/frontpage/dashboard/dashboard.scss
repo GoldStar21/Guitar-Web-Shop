@@ -1,9 +1,14 @@
 .dashboardMain {
-  margin-left: 250px; // sidebar width
-  padding: 20px;
+  
+  //padding: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  margin-top: 80px; 
+  margin-left: 250px;
+  padding: 2rem;
+ //box-sizing: border-box;
 
   @include respondBetween(0, $breakpoint-tablet) {
     margin-left: 0;

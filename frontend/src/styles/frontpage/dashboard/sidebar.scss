@@ -61,7 +61,7 @@
 .sidebar__hamburger {
   position: fixed;
   top: 90px;
-  left: 10px;
+  left: 8px;
   z-index: 150;
   background-color: white;
   padding: 8px;
@@ -71,8 +71,8 @@
   display: none;
 
   svg {
-    width: 24px;
-    height: 24px;
+    width: 22px;
+    height: 22px;
   }
 
   @include respondBetween(0, $breakpoint-tablet) {

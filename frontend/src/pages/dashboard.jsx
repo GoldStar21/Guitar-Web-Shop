@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 
 import SideNavbar from "@/components/dashboard components/SideNavbar";
-import NavbarDashboard from "@/components/dashboard components/NavbarDashboard";
-import TableComponent from "@/components/dashboard components/Table";
+import NavbarDashboard from "@/components/dashboard components/DashboardNavbar";
+import Table from "@/components/dashboard components/Table";
 import CreateProduct from "@/components/dashboard components/CreateProduct";
 import ViewProduct from "@/components/dashboard components/ViewProduct";
 
@@ -24,7 +24,7 @@ const Dashboard = () => {
   const renderContent = () => {
     switch (activePage) {
       case "dashboard":
-        return <TableComponent />;
+        return <Table />;
       case "viewProduct":
         return <ViewProduct />;
       case "createProduct":
