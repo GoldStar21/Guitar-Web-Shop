@@ -8,6 +8,8 @@
   margin-top: 80px; 
   margin-left: 250px;
   padding: 2rem;
+  height: calc(90vh - 75px); // zauzmi preostalu visinu
+  overflow-y: none;
  //box-sizing: border-box;
 
   @include respondBetween(0, $breakpoint-tablet) {

@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 
-import SideNavbar from "@/components/dashboard components/SideNavbar";
-import NavbarDashboard from "@/components/dashboard components/DashboardNavbar";
-import Table from "@/components/dashboard components/Table";
-import CreateProduct from "@/components/dashboard components/CreateProduct";
-import ViewProduct from "@/components/dashboard components/ViewProduct";
+import SideNavbar from "@/components/dashboardComponents/SideNavbar";
+import NavbarDashboard from "@/components/dashboardComponents/DashboardNavbar";
+import Table from "@/components/dashboardComponents/Table";
+import CreateProduct from "@/components/dashboardComponents/CreateProduct";
+import CreateEmployee from "@/components/dashboardComponents/CreateEmployee";
+import EmployeeTable from "@/components/dashboardComponents/EmployeeTable";
 
 const Dashboard = () => {
   const [activePage, setActivePage] = useState("dashboard");
@@ -25,14 +26,16 @@ const Dashboard = () => {
     switch (activePage) {
       case "dashboard":
         return <Table />;
-      case "viewProduct":
-        return <ViewProduct />;
+
       case "createProduct":
         return <CreateProduct />;
-      case "editProduct":
-        return <EditProduct />;
+
       case "createEmployee":
         return <CreateEmployee />;
+
+      case "employeeTable":
+        return <EmployeeTable />;
+
       default:
         return <h2>Page not found</h2>;
     }

@@ -1,7 +1,8 @@
-.editProduct {
+.createEmployee {
   background-color: white;
   border: 1px solid #ccc;
   width: 100%;
+  height: auto;
   border-radius: 5px;
   padding: 30px;
 
@@ -10,10 +11,14 @@
     align-items: center;
   }
 
+  &__title {
+    text-align: center;
+  }
+
   &__form {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.5rem;
     width: 100%;
     max-width: 500px;
     margin: 0 auto;
@@ -22,59 +27,31 @@
   &__fields {
     display: flex;
     flex-direction: column;
-    &__label {
-      font-size: 25px;
-      font-weight: 500;
-    }
-
-    &__input {
-      width: 100%;
-      min-height: 25px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      font-size: 15px;
-      font-weight: 400;
-    }
   }
 
-  &__imagePreview {
-    display: flex;
-    justify-content: center;
-    gap: 3rem;
+  &__label {
+    font-size: 25px;
+    font-weight: 500;
   }
 
-  &__image {
-    max-width: 80px;
-    
+  &__input {
+    width: 100%;
+    min-height: 25px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 15px;
+    font-weight: 400;
   }
 
   &__buttons {
     display: flex;
-    justify-content: space-between;
-    gap: 3rem;
+    justify-content: center;
 
-    &__cancel {
+    &__create {
       padding: 0.5rem 1rem;
       border-radius: 8px;
       border: 1px solid #ccc;
-      flex: 1 1 auto;
-      text-align: center;
-      font-size: 15px;
-      transition: background-color 0.6s ease;
-      font-size: 17px;
-      font-weight: 500;
 
-      &:hover {
-        background-color: #cc565e;
-        color: white;
-      }
-    }
-
-    &__save {
-      padding: 0.5rem 1rem;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      flex: 1 1 auto;
       text-align: center;
       font-size: 15px;
       transition: background-color 0.6s ease;
@@ -88,6 +65,21 @@
     }
   }
 
+   &__radio-group {
+    display: flex;
+    gap: 2rem;
+    margin-top: 0.5rem;
+    justify-content: start;
+  }
+
+  &__label__radio {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 20px;
+    font-weight: 400;
+  }
+
   @include respondBetween(0, $breakpoint-tablet) {
     &__form {
       gap: 1rem;
@@ -98,11 +90,7 @@
     &__buttons {
       gap: 1.5rem;
 
-      &__cancel {
-        margin-top: 10px;
-      }
-
-      &__save {
+      &__create {
         margin-top: 10px;
       }
     }

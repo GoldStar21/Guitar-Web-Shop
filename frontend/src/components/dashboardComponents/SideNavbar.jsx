@@ -40,6 +40,16 @@ const SideNavbar = ({ onNavigate }) => {
             <div
               className="sidebar__item"
               onClick={() => {
+                onNavigate("employeeTable");
+                setIsOpen(false);
+              }}
+            >
+              <FiPackage className="sidebar__icon" />
+              <span>Employee table</span>
+            </div>
+            <div
+              className="sidebar__item"
+              onClick={() => {
                 onNavigate("dashboard");
                 setIsOpen(false);
               }}

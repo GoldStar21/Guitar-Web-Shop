@@ -1,5 +1,6 @@
 package com.github.goldstar21.backend.controller;
 
+import com.github.goldstar21.backend.dto.ProductUpdateDto;
 import com.github.goldstar21.backend.model.Product;
 import com.github.goldstar21.backend.service.ProductService;
 import lombok.RequiredArgsConstructor;
@@ -18,6 +19,12 @@ import java.util.List;
 @RequestMapping("/api/products")
 
 // API ENDPOINT
+
+//Parsira zahtjev (ulazne podatke, parametre, tijelo zahtjeva).
+
+//Poziva odgovarajuće metode u Service sloju.
+
+// Vraća odgovor (npr. JSON, statusni kod) klijentu.
 
 public class ProductController {
 
@@ -49,5 +56,24 @@ public class ProductController {
         return productService.getProductById(id);
 
     }
+
+    // EDIT napraviti i za slike jos
+
+    @PutMapping(value = "/{id}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseEntity<Product> productUpdate(
+            @PathVariable Long id,
+            @RequestPart("product") ProductUpdateDto productDto,
+            @RequestPart(value = "images", required = false) MultipartFile[] images,
+            @RequestParam(value = "deletedImageIds", required = false) List<Long> deletedImageIds
+    ) throws IOException {
+
+        Product updated = productService.productUpdate(id, productDto, images, deletedImageIds);
+
+        return ResponseEntity.ok(updated);
+    }
+
+
+
+//B.productUpdate(id, productUpdate(), images, deletedImageIds);
 
 }

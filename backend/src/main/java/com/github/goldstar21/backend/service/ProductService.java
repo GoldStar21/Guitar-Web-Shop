@@ -1,8 +1,10 @@
 package com.github.goldstar21.backend.service;
 
+import com.github.goldstar21.backend.dto.ProductUpdateDto;
 import com.github.goldstar21.backend.model.Images;
 import com.github.goldstar21.backend.model.Product;
 import com.github.goldstar21.backend.repository.ProductRepository;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,6 +16,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -45,6 +48,62 @@ public class ProductService {
         return "/uploads/" + fileName;
     }
 
+    @Transactional
+    public Product productUpdate(Long id, ProductUpdateDto updateProduct, MultipartFile[] images, List<Long> deletedImageIds) throws IOException {
+
+        Product oldProduct = productRepository.findById(id).orElseThrow(() -> new RuntimeException("Product not found"));
+
+        if (updateProduct.getBrand() != null)
+            oldProduct.setBrand(updateProduct.getBrand());
+        if (updateProduct.getModel() != null)
+            oldProduct.setModel(updateProduct.getModel());
+        if (updateProduct.getType() != null)
+            oldProduct.setType(updateProduct.getType());
+        if (updateProduct.getPrice() != null)
+            oldProduct.setPrice(updateProduct.getPrice());
+        if (updateProduct.getAmount() != null)
+            oldProduct.setAmount(updateProduct.getAmount());
+
+        // Brisanje označenih slika
+        if (deletedImageIds != null && !deletedImageIds.isEmpty()) {
+            List<Images> imagesToRemove = oldProduct.getImages().stream()
+                    .filter(img -> deletedImageIds.contains(img.getId()))
+                    .collect(Collectors.toList());
+
+            for (Images img : imagesToRemove) {
+                // Briši fajl sa diska
+                Path pathToDelete = Paths.get("uploads", Paths.get(img.getImagePath()).getFileName().toString());
+                Files.deleteIfExists(pathToDelete);
+
+                // Ukloni sliku iz entiteta
+                oldProduct.getImages().remove(img);
+            }
+        }
+       // // Dodaj nove slike ako postoje
+        if(images != null && images.length > 0){
+            for(MultipartFile file : images){
+                if (!file.isEmpty()) {
+                    String path = saveFileToDisk(file);
+
+                    Images newImg = new Images();
+                    newImg.setImagePath(path);
+                    newImg.setProduct(oldProduct);
+
+                    oldProduct.getImages().add(newImg);
+                }
+            }
+        }
+
+
+
+
+
+
+
+        return productRepository.save(oldProduct);
+
+    }
+
 
     // Display all products
 
@@ -64,6 +123,15 @@ public class ProductService {
     public Product getProductById(@PathVariable Long id) {
         return productRepository.findById(id).get();
     }
+
+    // Product EDIT
+
+
+
+
+
+
+
 
 
 }

@@ -28,7 +28,7 @@ public class Product {
     private BigDecimal price;
     private Integer amount;
 
-    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
     private List<Images> images = new ArrayList<>();
 }
