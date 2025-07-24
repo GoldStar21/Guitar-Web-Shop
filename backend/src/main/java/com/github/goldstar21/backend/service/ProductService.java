@@ -126,12 +126,12 @@ public class ProductService {
 
     // Product EDIT
 
+    // Type find
 
 
 
 
-
-
-
-
+    public List<Product> findByType(String type) {
+        return productRepository.findByTypeIgnoreCase(type);
+    }
 }

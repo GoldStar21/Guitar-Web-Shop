@@ -2,6 +2,7 @@ package com.github.goldstar21.backend.model;
 
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -31,4 +32,16 @@ public class Product {
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
     private List<Images> images = new ArrayList<>();
+
+    // Dodati ovo jebeno
+
+    // Dodatni getter za imageUrl - vraća URL prve slike ili default
+    @JsonProperty("imageUrl")
+    public String getImageUrl() {
+        if (images.isEmpty()) {
+            return "/uploads/default.jpg";
+        }
+        return "/uploads/" + images.get(0).getImagePath();
+    }
+
 }

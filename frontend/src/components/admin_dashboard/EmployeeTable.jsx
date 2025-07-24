@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 const EmployeeTable = () => {
   const [users, setUsers] = useState([]);
 
-  // Dohvat korisnika
+  // get users
   useEffect(() => {
     const token = localStorage.getItem("token");
 
@@ -22,7 +22,7 @@ const EmployeeTable = () => {
       .catch((error) => console.error("Ooops:", error));
   }, []);
 
-  // Brisanje korisnika  NA BACKENDU RIJESI DELETE JOS
+  // User DELETE
   const handleDelete = async (id) => {
     const token = localStorage.getItem("token");
 

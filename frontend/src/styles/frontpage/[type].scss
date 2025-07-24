@@ -1,0 +1,139 @@
+.shopCategory {
+  background-image: url("/image-hero-background.png");
+  background-repeat: repeat;
+  background-size: auto;
+
+  &__content {
+    padding: 0 2rem 2rem 2rem;
+  }
+
+  &__title {
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 3rem;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 30px;
+  }
+
+  &__card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    transition: transform 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; // gura dno dolje
+    padding: 10px;
+
+    &:hover {
+      transform: scale(1.02);
+    }
+  }
+
+  &__title3 {
+    margin: 15px 0;
+  }
+
+  &__type {
+    margin: 10px 0;
+    font-size: 1.2rem;
+  }
+
+  &__price {
+    margin: 10px 0;
+    font-size: 1.5rem;
+  }
+
+  &__image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #c7ede6;
+  }
+
+  &__modalImageWrapper {
+    position: relative;
+    text-align: center;
+    margin: 20px 0;
+  }
+
+  &__modalImage {
+    max-width: 100%;
+    max-height: 500px;
+    min-width: 600px;
+    object-fit: contain;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+
+  &__modalControls {
+    display: flex;
+    justify-content: center;
+    gap: 1.25rem; 
+    margin-top: 10px;
+
+    button {
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      font-size: 1.25rem;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+
+      &:hover {
+        background-color: #f0f0f0;
+      }
+    }
+  }
+  &__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+
+  &__modal {
+    background-color: #fff;
+    border-radius: 0.5rem;
+    max-width: 600px;
+    max-height: 600px;
+    overflow-y: auto;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__modalImageWrapper {
+    width: 100%;
+    margin-bottom: 1rem;
+    
+  }
+
+  &__modalImage {
+    max-width: 100%;
+    object-fit: contain;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+  }
+}
+
+

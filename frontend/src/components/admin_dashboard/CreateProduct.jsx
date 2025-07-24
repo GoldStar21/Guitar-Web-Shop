@@ -34,12 +34,12 @@ const CreateProduct = () => {
       new Blob([JSON.stringify(productData)], { type: "application/json" })
     );
 
-    // Dodaj slike
+    // Add images
     images.forEach((img) => {
       formData.append("images", img);
     });
 
-    // Slanje svega
+    // Send
     try {
       const res = await fetch("http://localhost:8080/api/products", {
         method: "POST",
@@ -49,7 +49,7 @@ const CreateProduct = () => {
         body: formData,
       });
 
-      // Ako je sve ok resetuj fromu i daj poruku
+      // If everything is ok, reset the form
       if (res.ok) {
         alert("Product created!");
 
@@ -61,16 +61,16 @@ const CreateProduct = () => {
         setImages([]);
       } else {
         const errorText = await res.text();
-        alert("Greška: " + errorText);
+        alert("Error: " + errorText);
       }
     } catch (err) {
       console.error("Error:", err);
 
       if (err.response) {
-        console.error("Odgovor servera:", await err.response.text());
+        console.error("Server resonse:", await err.response.text());
       }
 
-      alert("Došlo je do greške pri slanju proizvoda.");
+      alert("Error occured while sending the data.");
     }
   };
 

@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 
 const EditProduct = ({ product, setEditingProduct, onSave, onCancel }) => {
-  // ✅ Dodano za nove slike
+  // Dodano za nove slike
   const [newImages, setNewImages] = useState([]);
 
-  // Funkcija za ažuriranje tekstualnih polja
+  // Updating input fileds
   const handleChange = (e) => {
     const { name, value } = e.target;
     setEditingProduct((prev) => ({
@@ -13,7 +13,7 @@ const EditProduct = ({ product, setEditingProduct, onSave, onCancel }) => {
     }));
   };
 
-  // Funkcija za brisanje slike iz product.images
+  // Deleting images from - product.images
   const handleDeleteImage = (id) => {
     setEditingProduct((prev) => ({
       ...prev,
@@ -22,13 +22,12 @@ const EditProduct = ({ product, setEditingProduct, onSave, onCancel }) => {
     }));
   };
 
-  // ✅ Dodano: Funkcija za upravljanje novim slikama
+  // Function for managing new images
   const handleNewImagesChange = (e) => {
     const files = Array.from(e.target.files);
     setNewImages((prevImages) => [...prevImages, ...files]);
   };
 
-  // Funkcija koja se poziva kada se forma šalje
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -49,12 +48,12 @@ const EditProduct = ({ product, setEditingProduct, onSave, onCancel }) => {
       new Blob([JSON.stringify(productData)], { type: "application/json" })
     );
 
-    // ✅ Dodano: nove slike
+    // Adding new images
     newImages.forEach((image) => {
       formData.append("images", image);
     });
 
-    // Ako ima obrisanih slika
+    // If there is images that are deleted
     if (product.deletedImageIds && product.deletedImageIds.length > 0) {
       product.deletedImageIds.forEach((id) =>
         formData.append("deletedImageIds", id)
@@ -75,7 +74,7 @@ const EditProduct = ({ product, setEditingProduct, onSave, onCancel }) => {
 
       if (res.ok) {
         alert("Product updated!");
-        onSave(); // ili osvježi listu
+        onSave();
       } else {
         const errText = await res.text();
         alert("Error: " + errText);
@@ -91,7 +90,6 @@ const EditProduct = ({ product, setEditingProduct, onSave, onCancel }) => {
       <div className="c-container">
         <div className="editProduct__content">
           <form className="editProduct__form" onSubmit={handleSubmit}>
-            {/* --- Polja za unos --- */}
             <div className="editProduct__fields">
               <label className="editProduct__fields__label">BRAND:</label>
               <input
@@ -147,7 +145,7 @@ const EditProduct = ({ product, setEditingProduct, onSave, onCancel }) => {
               />
             </div>
 
-            {/* --- Postojeće slike --- */}
+            {/* --- Existing images --- */}
             {product.images && product.images.length > 0 && (
               <div className="editProduct__fields">
                 <label className="editProduct__fields__label">IMAGES:</label>
@@ -197,7 +195,7 @@ const EditProduct = ({ product, setEditingProduct, onSave, onCancel }) => {
               </div>
             )}
 
-            {/* --- Novi upload --- */}
+            {/* --- New upload --- */}
             <div className="editProduct__fields">
               <label className="editProduct__fields__label">
                 ADD NEW IMAGES:
@@ -233,7 +231,7 @@ const EditProduct = ({ product, setEditingProduct, onSave, onCancel }) => {
               )}
             </div>
 
-            {/* --- Dugmad --- */}
+            {/* --- Buttons --- */}
             <div className="editProduct__buttons">
               <button className="editProduct__buttons__save" type="submit">
                 SAVE

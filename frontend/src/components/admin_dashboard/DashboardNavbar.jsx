@@ -1,4 +1,4 @@
-const DashboardNavbar = () => {
+const DashboardNavbar = ({ username }) => {
   return (
     <nav className="navbarDashboard">
       <div className="c-container">
@@ -18,7 +18,7 @@ const DashboardNavbar = () => {
               alt="Logo"
               className="navbarDashboard__adminImg__image"
             />
-            <h2 className="navbarDashboard__adminImg__title">ADMIN</h2>
+            <h2 className="navbarDashboard__adminImg__title">{username}</h2>
           </div>
         </div>
       </div>

@@ -27,6 +27,10 @@ const LoginForm = () => {
       const payloadBase64 = token.split(".")[1];
       const decodedPayload = JSON.parse(atob(payloadBase64));
       const userRole = decodedPayload.role;
+      const username = decodedPayload.username;
+
+      // Spremi username u localStorage
+      localStorage.setItem("username", username);
 
       // Redirect depending on the role
       if (userRole === "ADMIN") {

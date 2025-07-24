@@ -2,6 +2,8 @@
   background-color: white;
   border: 1px solid #ccc;
   width: 100%;
+  max-width: 700px;
+  min-width: 250px;
   height: auto;
   border-radius: 5px;
   padding: 30px;
@@ -13,6 +15,8 @@
 
   &__title {
     text-align: center;
+    font-size: 30px;
+    font-weight: 500;
   }
 
   &__form {
@@ -30,7 +34,7 @@
   }
 
   &__label {
-    font-size: 25px;
+    font-size: 23px;
     font-weight: 500;
   }
 
@@ -40,7 +44,7 @@
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 15px;
-    font-weight: 400;
+    font-weight: 500;
   }
 
   &__buttons {
@@ -53,7 +57,6 @@
       border: 1px solid #ccc;
 
       text-align: center;
-      font-size: 15px;
       transition: background-color 0.6s ease;
       font-size: 17px;
       font-weight: 500;
@@ -65,7 +68,7 @@
     }
   }
 
-   &__radio-group {
+  &__radio-group {
     display: flex;
     gap: 2rem;
     margin-top: 0.5rem;
@@ -81,9 +84,27 @@
   }
 
   @include respondBetween(0, $breakpoint-tablet) {
+    max-width: 500px;
+
+    &__title {
+      font-size: 20px;
+    }
+
+    &__form {
+      max-width: 400px;
+    }
+
+    &__label {
+      font-size: 15px;
+    }
+
+    &__label__radio {
+      font-size: 15px;
+    }
+
     &__form {
       gap: 1rem;
-      min-width: 200px;
+      min-width: 150px;
       margin: 10px auto;
     }
 

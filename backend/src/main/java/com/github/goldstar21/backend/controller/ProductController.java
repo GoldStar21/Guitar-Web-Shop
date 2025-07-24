@@ -2,6 +2,7 @@ package com.github.goldstar21.backend.controller;
 
 import com.github.goldstar21.backend.dto.ProductUpdateDto;
 import com.github.goldstar21.backend.model.Product;
+import com.github.goldstar21.backend.repository.ProductRepository;
 import com.github.goldstar21.backend.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
@@ -29,6 +30,7 @@ import java.util.List;
 public class ProductController {
 
     private final ProductService productService;
+    private final ProductRepository productRepository;
 
 
     @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
@@ -72,8 +74,16 @@ public class ProductController {
         return ResponseEntity.ok(updated);
     }
 
+    // Prikaz slika u Shop sekciji
 
 
-//B.productUpdate(id, productUpdate(), images, deletedImageIds);
+    @GetMapping("/type/{type}")
+    public List<Product> getProductsByType(@PathVariable String type) {
+        return productService.findByType(type);
+    }
+
+
+
+
 
 }

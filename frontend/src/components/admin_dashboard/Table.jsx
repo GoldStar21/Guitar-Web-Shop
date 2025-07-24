@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import ViewProduct from "./ViewProduct";
 import EditProduct from "./EditProduct";
+import AuthGuard from "./AuthGuard";
 
-const TableComponent = () => {
+const Table = ({ canEdit = true, canDelete = true, canView = true }) => {
   const [products, setProducts] = useState([]);
   const [editingProduct, setEditingProduct] = useState(null);
   const [viewProduct, setViewProduct] = useState(null);
@@ -119,24 +120,30 @@ const TableComponent = () => {
                   {product.amount}
                 </td>
                 <td className="productTable__td--actions">
-                  <button
-                    className="productTable__button"
-                    onClick={() => handleViewClick(product)}
-                  >
-                    VIEW
-                  </button>
-                  <button
-                    className="productTable__button"
-                    onClick={() => handleEditClick(product)}
-                  >
-                    EDIT
-                  </button>
-                  <button
-                    className="productTable__button"
-                    onClick={() => handleDelete(product.id)}
-                  >
-                    DELETE
-                  </button>
+                  {canView && (
+                    <button
+                      className="productTable__button"
+                      onClick={() => handleViewClick(product)}
+                    >
+                      VIEW
+                    </button>
+                  )}
+                  {canEdit && (
+                    <button
+                      className="productTable__button"
+                      onClick={() => handleEditClick(product)}
+                    >
+                      EDIT
+                    </button>
+                  )}
+                  {canDelete && (
+                    <button
+                      className="productTable__button"
+                      onClick={() => handleDelete(product.id)}
+                    >
+                      DELETE
+                    </button>
+                  )}
                 </td>
               </tr>
             ))}
@@ -147,4 +154,4 @@ const TableComponent = () => {
   );
 };
 
-export default TableComponent;
+export default Table;

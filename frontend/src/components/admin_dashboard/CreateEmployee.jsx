@@ -1,18 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useRouter } from "next/router";
 
 const CreateEmployee = () => {
-  const token = localStorage.getItem("token");
-  if (!token) {
-    alert("We are sorry for inconvinience, please login again.");
-    return null;
-  }
+  const router = useRouter();
+  const [token, setToken] = useState(null);
 
-  // State za input polja
+  useEffect(() => {
+    const storedToken = localStorage.getItem("token");
+    if (!storedToken) {
+      alert("Please login first.");
+      router.push("/login");
+    } else {
+      setToken(storedToken);
+    }
+  }, [router]);
+
   const [username, setUsername] = useState("");
   const [role, setRole] = useState("");
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
-  const [users, setUsers] = useState([]);
 
   // Stoping page reload
   const handleSubmit = async (e) => {
@@ -23,14 +29,13 @@ const CreateEmployee = () => {
       return;
     }
 
-    //  objekat koji sakuplja podatke iz stanja (state) komponenta u jedan paket koji možeš poslati na backend.
     const userData = {
       username,
       role,
       password,
     };
 
-    // Slanje svega
+    // Send
     try {
       const res = await fetch("http://localhost:8080/api/users/register", {
         method: "POST",
@@ -42,19 +47,20 @@ const CreateEmployee = () => {
         body: JSON.stringify(userData),
       });
 
-      // I ovde također raditi validaciju
-
-      // Ako je sve ok resetuj fromu i daj poruku
       if (res.ok) {
         alert("User created!");
-        // reset forme
+
+        setUsername("");
+        setRole("");
+        setPassword("");
+        setRepeatPassword("");
       } else {
         const errorText = await res.text();
-        alert("Greška: " + errorText);
+        alert("Error: " + errorText);
       }
     } catch (err) {
       console.error("Error:", err);
-      alert("Došlo je do greške pri slanju proizvoda.");
+      alert("Error while sending data.");
     }
   };
 
@@ -98,8 +104,8 @@ const CreateEmployee = () => {
                     className="createEmployee__input"
                     type="radio"
                     name="role"
-                    value="USER"
-                    checked={role === "USER"}
+                    value="EMPLOYEE"
+                    checked={role === "EMPLOYEE"}
                     onChange={(e) => setRole(e.target.value)}
                     required
                   />
