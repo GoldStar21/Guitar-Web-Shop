@@ -2,8 +2,12 @@
   background-color: white;
   border: 1px solid #ccc;
   width: 100%;
+  max-width: 700px;
+  min-width: 250px;
+  height: 72vh;
   border-radius: 5px;
   padding: 30px;
+  overflow-y: auto;
 
   &__content {
     display: flex;
@@ -13,7 +17,7 @@
   &__form {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.5rem;
     width: 100%;
     max-width: 500px;
     margin: 0 auto;
@@ -22,89 +26,116 @@
   &__fields {
     display: flex;
     flex-direction: column;
-    &__label {
-      font-size: 25px;
-      font-weight: 500;
-    }
+  }
 
-    &__input {
-      width: 100%;
-      min-height: 25px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      font-size: 15px;
-      font-weight: 400;
+  &__fields__label {
+    font-size: 23px;
+    font-weight: 500;
+  }
+
+  &__fields__input {
+    width: 100%;
+    min-height: 25px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 15px;
+    font-weight: 500;
+
+    &:focus {
+      outline: none;
+      border-color: #888;
     }
   }
 
-  &__imagePreview {
+  &__imagePreview,
+  &__newImagePreview {
     display: flex;
-    justify-content: center;
-    gap: 3rem;
+    gap: 10px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+  }
+
+  &__imageWrapper {
+    position: relative;
+    display: inline-block;
   }
 
   &__image {
-    max-width: 80px;
-    
+    width: 100px;
+    height: auto;
+    display: block;
+    border-radius: 0.5rem;
+    object-fit: cover;
+    border: 1px solid #ccc;
+  }
+
+  &__deleteBtn {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    background: rgba(255, 0, 0, 0.7);
+    border: none;
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    line-height: 18px;
+    padding: 0;
   }
 
   &__buttons {
     display: flex;
-    justify-content: space-between;
-    gap: 3rem;
+    justify-content: center;
+    gap: 4rem;
+  }
 
-    &__cancel {
-      padding: 0.5rem 1rem;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      flex: 1 1 auto;
-      text-align: center;
-      font-size: 15px;
-      transition: background-color 0.6s ease;
-      font-size: 17px;
-      font-weight: 500;
+  &__buttons__cancel {
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
 
-      &:hover {
-        background-color: #cc565e;
-        color: white;
-      }
+    text-align: center;
+    transition: background-color 0.6s ease;
+    font-size: 17px;
+    font-weight: 500;
+
+    &:hover {
+      background-color: #eb5f46;
+      color: white;
     }
+  }
 
-    &__save {
-      padding: 0.5rem 1rem;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      flex: 1 1 auto;
-      text-align: center;
-      font-size: 15px;
-      transition: background-color 0.6s ease;
-      font-size: 17px;
-      font-weight: 500;
+  &__buttons__save {
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
 
-      &:hover {
-        background-color: #7fda83;
-        color: white;
-      }
+    text-align: center;
+    transition: background-color 0.6s ease;
+    font-size: 17px;
+    font-weight: 500;
+
+    &:hover {
+      background-color: #7fda83;
+      color: white;
     }
   }
 
   @include respondBetween(0, $breakpoint-tablet) {
     &__form {
       gap: 1rem;
-      min-width: 200px;
+      min-width: 150px;
       margin: 10px auto;
+    }
+
+    &__fields__label {
+      font-size: 20px;
     }
 
     &__buttons {
       gap: 1.5rem;
-
-      &__cancel {
-        margin-top: 10px;
-      }
-
-      &__save {
-        margin-top: 10px;
-      }
     }
   }
 }

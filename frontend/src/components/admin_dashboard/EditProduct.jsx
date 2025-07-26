@@ -1,19 +1,61 @@
 import React, { useState } from "react";
 
+const fields = [
+  { label: "BRAND", name: "brand", type: "text" },
+  { label: "MODEL", name: "model", type: "text" },
+  { label: "TYPE", name: "type", type: "text" },
+  { label: "PRICE", name: "price", type: "text" },
+  { label: "AMOUNT", name: "amount", type: "number" },
+];
+
+const ImagePreview = ({ images, onDelete }) => (
+  <div className="editProduct__fields">
+    <label className="editProduct__fields__label">IMAGES:</label>
+    <div className="editProduct__imagePreview">
+      {images.map((img, index) => (
+        <div key={img.id || index} className="editProduct__imageWrapper">
+          <img
+            src={`http://localhost:8080${img.imagePath}`}
+            alt={`Product Image ${index + 1}`}
+            className="editProduct__image"
+          />
+          <button
+            type="button"
+            onClick={() => onDelete(img.id)}
+            className="editProduct__deleteBtn"
+            aria-label="Delete image"
+          >
+            ×
+          </button>
+        </div>
+      ))}
+    </div>
+  </div>
+);
+
+const NewImagesPreview = ({ newImages }) =>
+  newImages.length > 0 && (
+    <div className="editProduct__newImagePreview">
+      {newImages.map((img, index) => (
+        <div key={index} className="editProduct__imageWrapper">
+          <img
+            src={URL.createObjectURL(img)}
+            alt={`New Image ${index + 1}`}
+            className="editProduct__image"
+          />
+        </div>
+      ))}
+    </div>
+  );
+
 const EditProduct = ({ product, setEditingProduct, onSave, onCancel }) => {
-  // Dodano za nove slike
   const [newImages, setNewImages] = useState([]);
 
-  // Updating input fileds
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setEditingProduct((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+    setEditingProduct((prev) => ({ ...prev, [name]: value }));
   };
 
-  // Deleting images from - product.images
   const handleDeleteImage = (id) => {
     setEditingProduct((prev) => ({
       ...prev,
@@ -22,17 +64,15 @@ const EditProduct = ({ product, setEditingProduct, onSave, onCancel }) => {
     }));
   };
 
-  // Function for managing new images
   const handleNewImagesChange = (e) => {
     const files = Array.from(e.target.files);
-    setNewImages((prevImages) => [...prevImages, ...files]);
+    setNewImages((prev) => [...prev, ...files]);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const token = localStorage.getItem("token");
-
     const formData = new FormData();
 
     const productData = {
@@ -48,13 +88,9 @@ const EditProduct = ({ product, setEditingProduct, onSave, onCancel }) => {
       new Blob([JSON.stringify(productData)], { type: "application/json" })
     );
 
-    // Adding new images
-    newImages.forEach((image) => {
-      formData.append("images", image);
-    });
+    newImages.forEach((img) => formData.append("images", img));
 
-    // If there is images that are deleted
-    if (product.deletedImageIds && product.deletedImageIds.length > 0) {
+    if (product.deletedImageIds?.length > 0) {
       product.deletedImageIds.forEach((id) =>
         formData.append("deletedImageIds", id)
       );
@@ -90,112 +126,26 @@ const EditProduct = ({ product, setEditingProduct, onSave, onCancel }) => {
       <div className="c-container">
         <div className="editProduct__content">
           <form className="editProduct__form" onSubmit={handleSubmit}>
-            <div className="editProduct__fields">
-              <label className="editProduct__fields__label">BRAND:</label>
-              <input
-                className="editProduct__fields__input"
-                type="text"
-                name="brand"
-                value={product.brand}
-                onChange={handleChange}
-              />
-            </div>
-
-            <div className="editProduct__fields">
-              <label className="editProduct__fields__label">MODEL:</label>
-              <input
-                className="editProduct__fields__input"
-                type="text"
-                name="model"
-                value={product.model}
-                onChange={handleChange}
-              />
-            </div>
-
-            <div className="editProduct__fields">
-              <label className="editProduct__fields__label">TYPE:</label>
-              <input
-                className="editProduct__fields__input"
-                type="text"
-                name="type"
-                value={product.type}
-                onChange={handleChange}
-              />
-            </div>
-
-            <div className="editProduct__fields">
-              <label className="editProduct__fields__label">PRICE:</label>
-              <input
-                className="editProduct__fields__input"
-                type="text"
-                name="price"
-                value={product.price}
-                onChange={handleChange}
-              />
-            </div>
-
-            <div className="editProduct__fields">
-              <label className="editProduct__fields__label">AMOUNT:</label>
-              <input
-                className="editProduct__fields__input"
-                type="number"
-                name="amount"
-                value={product.amount}
-                onChange={handleChange}
-              />
-            </div>
-
-            {/* --- Existing images --- */}
-            {product.images && product.images.length > 0 && (
-              <div className="editProduct__fields">
-                <label className="editProduct__fields__label">IMAGES:</label>
-                <div
-                  className="editProduct__imagePreview"
-                  style={{ display: "flex", gap: "10px" }}
-                >
-                  {product.images.map((img, index) => (
-                    <div
-                      key={img.id || index}
-                      style={{ position: "relative", display: "inline-block" }}
-                    >
-                      <img
-                        src={`http://localhost:8080${img.imagePath}`}
-                        alt={`Product Image ${index + 1}`}
-                        style={{
-                          width: "100px",
-                          height: "auto",
-                          display: "block",
-                        }}
-                      />
-                      <button
-                        type="button"
-                        onClick={() => handleDeleteImage(img.id)}
-                        style={{
-                          position: "absolute",
-                          top: "2px",
-                          right: "2px",
-                          background: "rgba(255,0,0,0.7)",
-                          border: "none",
-                          color: "white",
-                          borderRadius: "50%",
-                          width: "20px",
-                          height: "20px",
-                          cursor: "pointer",
-                          fontWeight: "bold",
-                          lineHeight: "18px",
-                          padding: 0,
-                        }}
-                        aria-label="Delete image"
-                      >
-                        ×
-                      </button>
-                    </div>
-                  ))}
-                </div>
+            {fields.map(({ label, name, type }) => (
+              <div key={name} className="editProduct__fields">
+                <label className="editProduct__fields__label">{label}:</label>
+                <input
+                  className="editProduct__fields__input"
+                  type={type}
+                  name={name}
+                  value={product[name]}
+                  onChange={handleChange}
+                />
               </div>
+            ))}
+
+            {product.images?.length > 0 && (
+              <ImagePreview
+                images={product.images}
+                onDelete={handleDeleteImage}
+              />
             )}
 
-            {/* --- New upload --- */}
             <div className="editProduct__fields">
               <label className="editProduct__fields__label">
                 ADD NEW IMAGES:
@@ -207,31 +157,9 @@ const EditProduct = ({ product, setEditingProduct, onSave, onCancel }) => {
                 accept="image/*"
                 onChange={handleNewImagesChange}
               />
-
-              {/* ✅ Dodano: prikaz novih slika */}
-              {newImages.length > 0 && (
-                <div
-                  className="editProduct__newImagePreview"
-                  style={{ display: "flex", gap: "10px", marginTop: "10px" }}
-                >
-                  {newImages.map((img, index) => (
-                    <div key={index} style={{ position: "relative" }}>
-                      <img
-                        src={URL.createObjectURL(img)}
-                        alt={`New Image ${index + 1}`}
-                        style={{
-                          width: "100px",
-                          height: "auto",
-                          display: "block",
-                        }}
-                      />
-                    </div>
-                  ))}
-                </div>
-              )}
+              <NewImagesPreview newImages={newImages} />
             </div>
 
-            {/* --- Buttons --- */}
             <div className="editProduct__buttons">
               <button className="editProduct__buttons__save" type="submit">
                 SAVE

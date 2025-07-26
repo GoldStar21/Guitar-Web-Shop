@@ -28,7 +28,7 @@ const AuthGuard = ({ children, allowedRoles = [] }) => {
     }
   }, [allowedRoles, router]);
 
-  if (!authorized) return null; // ili možeš staviti loading spinner
+  if (!authorized) return null;
 
   return <>{children}</>;
 };
