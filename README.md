@@ -26,11 +26,11 @@ To run this application all you need to have is Docker (Docker desktop) installe
 - **Project will build automaticali**: Maybe will ask for approval. Approve.
 - **Start project**: In terminal enter: docker-compose up --build.
 - **Enjoy** : When application is running login is posible with two users:
-- Admin:
+ Admin:
   Username: Admin21
   Password: Admin1234
   
-- Employee:
+ Employee:
   Username: Employee21
   Password: Employee1234
 
@@ -46,35 +46,35 @@ Welcome page
 ![Guitar Web Shop](./frontend/public/screenshot.png)
 
 Login page 
-![Guitar Web Shop](./frontend/public/login.png)
+
 
 Admin panel
-![Guitar Web Shop](./frontend/public/admin-panel.png)
+
 
 Admin panel: create new Admin/Employee form
-![Guitar Web Shop](./frontend/public/admin-panel-create.png)
+
 
 Admin panel: Admin/Employee table
-![Guitar Web Shop](./frontend/public/admin-panel-emp.png)
+
 
 Admin panel: create product form
-![Guitar Web Shop](./frontend/public/admin-panel-createProduct.png)
+
 
 Admin panel: view product
-![Guitar Web Shop](./frontend/public/admin-panel-view.png)
+
 
 Admin panel: edit product
-![Guitar Web Shop](./frontend/public/admin-panel-edit.png)
+
 
 Employee panel
-![Guitar Web Shop](./frontend/public/emppanel.png)
+
 
 Example of electric guitars sections:
 Example No:1
-![Guitar Web Shop](./frontend/public/guitars_el.png)
+
 
 Example No:2
-![Guitar Web Shop](./frontend/public/guitar-rl-image.png)
+
 
 ## DESCRIPTION OF THE APPLICATION
 
