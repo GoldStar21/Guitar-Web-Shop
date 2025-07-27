@@ -16,6 +16,7 @@ public class DataSeeder implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+
         if (userRepository.count() == 0) {
             User admin = new User();
             admin.setUsername("Admin21");
@@ -26,5 +27,18 @@ public class DataSeeder implements CommandLineRunner {
         } else {
             System.out.println("Admin user already exists, skipping seeding.");
         }
+
+        if (userRepository.count() == 0) {
+            User employee = new User();
+            employee.setUsername("Employee21");
+            employee.setPassword(passwordEncoder.encode("Employee1234"));
+            employee.setRole("EMPLOYEE");
+            userRepository.save(employee);
+            System.out.println("Employee user created: username=Employee21, password=Employee1234");
+        } else {
+            System.out.println("Employee user already exists, skipping seeding.");
+        }
+
+
     }
 }
