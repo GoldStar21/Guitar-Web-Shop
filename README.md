@@ -26,7 +26,9 @@ To run this application all you need to have is Docker (Docker desktop) installe
 
 **The project should build automatically:** If prompted, approve any requests (e.g. Maven setup or Docker permissions).
 
-**In the terminal, run:** docker-compose up --build
+**In the terminal, run:** docker-compose up.␣␣   
+If for some reason the automatic build was not triggered, use docker-compose up --build.
+
 
 **Login credentials**
 **Admin:**
