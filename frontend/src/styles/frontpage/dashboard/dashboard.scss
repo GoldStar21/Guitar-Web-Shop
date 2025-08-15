@@ -2,8 +2,9 @@
   
   //padding: 20px;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  justify-content: start;
+  align-items: end;
 
   margin-top: 80px; 
   margin-left: 250px;

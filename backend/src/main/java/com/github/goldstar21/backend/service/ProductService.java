@@ -124,14 +124,30 @@ public class ProductService {
         return productRepository.findById(id).get();
     }
 
-    // Product EDIT
+
 
     // Type find
-
-
-
-
     public List<Product> findByType(String type) {
         return productRepository.findByTypeIgnoreCase(type);
     }
+
+    // Search products
+    public List<Product> searchProducts(String brand, String model) {
+        brand = (brand != null) ? brand.trim() : "";
+        model = (model != null) ? model.trim() : "";
+
+        List<Product> results = brand.isEmpty()
+                ? productRepository.findAll()
+                : productRepository.findByBrandContainingIgnoreCase(brand);
+
+        if (!model.isEmpty()) {
+            String m = model.toLowerCase();
+            results = results.stream()
+                    .filter(p -> p.getModel().toLowerCase().contains(m))
+                    .collect(Collectors.toList());
+        }
+
+        return results;
+    }
+
 }

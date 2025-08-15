@@ -7,11 +7,22 @@ const Table = ({ canEdit = true, canDelete = true, canView = true }) => {
   const [products, setProducts] = useState([]);
   const [editingProduct, setEditingProduct] = useState(null);
   const [viewProduct, setViewProduct] = useState(null);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     const token = localStorage.getItem("token");
 
-    fetch("http://localhost:8080/api/products", {
+    const parts = search.trim().split(" ");
+    const brand = parts[0];
+    const model = parts.slice(1).join(" ");
+
+    const url = search
+      ? `http://localhost:8080/api/products/search?brand=${encodeURIComponent(
+          brand
+        )}&model=${encodeURIComponent(model)}`
+      : "http://localhost:8080/api/products";
+
+    fetch(url, {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((response) => {
@@ -24,7 +35,7 @@ const Table = ({ canEdit = true, canDelete = true, canView = true }) => {
       })
       .then((data) => setProducts(data))
       .catch((error) => console.error("Ooops:", error));
-  }, []);
+  }, [search]);
 
   // * OnClick for DELETE button *
 
@@ -73,6 +84,14 @@ const Table = ({ canEdit = true, canDelete = true, canView = true }) => {
   return (
     // Conditional expression that enables opening table and product view section depending on condition
     <>
+      {/* Search input */}
+      <input
+        type="text"
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+        placeholder="Search..."
+        className="productTable__search"
+      />
       {editingProduct ? (
         <EditProduct
           product={editingProduct}

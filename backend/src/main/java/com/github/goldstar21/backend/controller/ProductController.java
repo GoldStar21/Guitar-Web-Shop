@@ -83,7 +83,14 @@ public class ProductController {
     }
 
 
+    // Pretraživanje tabele
 
+    @GetMapping("/search")
+    public List<Product> searchProducts(
+            @RequestParam(required = false) String brand,
+            @RequestParam(required = false) String model) {
+        return productService.searchProducts(brand, model);
+    }
 
 
 }
