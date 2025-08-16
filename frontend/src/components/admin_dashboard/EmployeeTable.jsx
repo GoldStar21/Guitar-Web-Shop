@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Button from "../Button";
 
 const EmployeeTable = () => {
   const [users, setUsers] = useState([]);
@@ -11,6 +12,8 @@ const EmployeeTable = () => {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((response) => {
+        console.log("Response status:", response.status); // status HTTP-a
+        console.log("Response ok?", response.ok);
         if (!response.ok) {
           throw new Error(
             "Ooops something went wrong while fetching the data."
@@ -59,12 +62,11 @@ const EmployeeTable = () => {
               </td>
 
               <td className="employeeTable__td--actions">
-                <button
-                  className="employeeTable__button"
+                <Button
+                  label="DELETE"
                   onClick={() => handleDelete(user.id)}
-                >
-                  DELETE
-                </button>
+                  modifier="deleteEmployee"
+                />
               </td>
             </tr>
           ))}

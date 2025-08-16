@@ -91,37 +91,8 @@
     gap: 4rem;
   }
 
-  &__buttons__cancel {
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
-    border: 1px solid #ccc;
 
-    text-align: center;
-    transition: background-color 0.6s ease;
-    font-size: 17px;
-    font-weight: 500;
 
-    &:hover {
-      background-color: #eb5f46;
-      color: white;
-    }
-  }
-
-  &__buttons__save {
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-
-    text-align: center;
-    transition: background-color 0.6s ease;
-    font-size: 17px;
-    font-weight: 500;
-
-    &:hover {
-      background-color: #7fda83;
-      color: white;
-    }
-  }
 
   @include respondBetween(0, $breakpoint-tablet) {
     &__form {

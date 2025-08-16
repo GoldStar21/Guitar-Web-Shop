@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Button from "../Button";
 
 const fields = [
   { label: "BRAND", name: "brand", type: "text" },
@@ -161,16 +162,12 @@ const EditProduct = ({ product, setEditingProduct, onSave, onCancel }) => {
             </div>
 
             <div className="editProduct__buttons">
-              <button className="editProduct__buttons__save" type="submit">
-                SAVE
-              </button>
-              <button
-                className="editProduct__buttons__cancel"
-                type="button"
+              <Button
+                label="CANCEL"
                 onClick={onCancel}
-              >
-                CANCEL
-              </button>
+                modifier="editButtons"
+              />
+              <Button label="SAVE" type="submit" modifier="editButtons" />
             </div>
           </form>
         </div>

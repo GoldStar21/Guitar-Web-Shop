@@ -43,22 +43,6 @@
   &__buttons {
     display: flex;
     justify-content: center;
-
-    &__create {
-      padding: 0.5rem 1rem;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-
-      text-align: center;
-      transition: background-color 0.6s ease;
-      font-size: 17px;
-      font-weight: 500;
-
-      &:hover {
-        background-color: #7fda83;
-        color: white;
-      }
-    }
   }
 
   @include respondBetween(0, $breakpoint-tablet) {

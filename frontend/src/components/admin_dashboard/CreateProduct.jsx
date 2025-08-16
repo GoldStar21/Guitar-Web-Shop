@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Button from "../Button";
 
 const CreateProduct = () => {
   const [brand, setBrand] = useState("");
@@ -139,9 +140,7 @@ const CreateProduct = () => {
               />
             </div>
             <div className="createProduct__buttons">
-              <button className="createProduct__buttons__create" type="submit">
-                CREATE
-              </button>
+              <Button label="CREATE" type="submit" modifier="createProduct" />
             </div>
           </form>
         </div>

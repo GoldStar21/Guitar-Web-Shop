@@ -1,11 +1,12 @@
 import { useState } from "react";
+import Button from "../Button";
 
 const ViewProduct = ({ product, onBack }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const images = product.images || [];
 
-  const previousIndex = () => {
+  const handlePrevious = () => {
     setCurrentIndex((previousIndex) =>
       previousIndex === 0 ? images.length - 1 : previousIndex - 1
     );
@@ -37,13 +38,9 @@ const ViewProduct = ({ product, onBack }) => {
                 alt={`Product ${currentIndex + 1}`}
                 style={{ width: "300px", height: "auto" }}
               />
-              <div className="viewTable__button">
-                <button className="viewTable__prev" onClick={previousIndex}>
-                  Prev
-                </button>
-                <button className="viewTable__next" onClick={handleNext}>
-                  Next
-                </button>
+              <div className="viewTable__buttons">
+                <Button label="Prev" onClick={handlePrevious} modifier="prev" />
+                <Button label="Next" onClick={handleNext} modifier="next" />
               </div>
             </>
           ) : (
@@ -51,10 +48,7 @@ const ViewProduct = ({ product, onBack }) => {
           )}
         </div>
       </div>
-
-      <button className="viewTable__back" onClick={onBack}>
-        Back
-      </button>
+      <Button label="Back" onClick={onBack} modifier="back" />
     </div>
   );
 };

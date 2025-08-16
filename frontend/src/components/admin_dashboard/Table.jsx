@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import ViewProduct from "./ViewProduct";
 import EditProduct from "./EditProduct";
 import AuthGuard from "./AuthGuard";
+import Button from "../Button";
 
 const Table = ({ canEdit = true, canDelete = true, canView = true }) => {
   const [products, setProducts] = useState([]);
@@ -140,28 +141,25 @@ const Table = ({ canEdit = true, canDelete = true, canView = true }) => {
                 </td>
                 <td className="productTable__td--actions">
                   {canView && (
-                    <button
-                      className="productTable__button"
+                    <Button
+                      label="VIEW"
                       onClick={() => handleViewClick(product)}
-                    >
-                      VIEW
-                    </button>
+                      modifier="buttons"
+                    />
                   )}
                   {canEdit && (
-                    <button
-                      className="productTable__button"
+                    <Button
+                      label="EDIT"
                       onClick={() => handleEditClick(product)}
-                    >
-                      EDIT
-                    </button>
+                      modifier="buttons"
+                    />
                   )}
                   {canDelete && (
-                    <button
-                      className="productTable__button"
+                    <Button
+                      label="DELETE"
                       onClick={() => handleDelete(product.id)}
-                    >
-                      DELETE
-                    </button>
+                      modifier="buttons"
+                    />
                   )}
                 </td>
               </tr>
