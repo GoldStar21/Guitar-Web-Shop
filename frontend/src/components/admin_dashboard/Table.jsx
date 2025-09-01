@@ -85,14 +85,6 @@ const Table = ({ canEdit = true, canDelete = true, canView = true }) => {
   return (
     // Conditional expression that enables opening table and product view section depending on condition
     <>
-      {/* Search input */}
-      <input
-        type="text"
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-        placeholder="Search..."
-        className="productTable__search"
-      />
       {editingProduct ? (
         <EditProduct
           product={editingProduct}
@@ -106,66 +98,77 @@ const Table = ({ canEdit = true, canDelete = true, canView = true }) => {
           onBack={() => setViewProduct(null)}
         />
       ) : (
-        <table className="productTable">
-          <thead className="productTable__thead">
-            <tr className="productTable__tr">
-              <th className="productTable__th">ID</th>
-              <th className="productTable__th">BRAND</th>
-              <th className="productTable__th">MODEL</th>
-              <th className="productTable__th">TYPE</th>
-              <th className="productTable__th">PRICE</th>
-              <th className="productTable__th">AMOUNT</th>
-              <th className="productTable__th">ACTIONS</th>
-            </tr>
-          </thead>
-          <tbody className="productTable__tbody">
-            {products.map((product) => (
-              <tr className="productTable__tr" key={product.id}>
-                <td className="productTable__td" data-label="ID">
-                  {product.id}
-                </td>
-                <td className="productTable__td" data-label="BRAND">
-                  {product.brand}
-                </td>
-                <td className="productTable__td" data-label="MODEL">
-                  {product.model}
-                </td>
-                <td className="productTable__td" data-label="TYPE">
-                  {product.type}
-                </td>
-                <td className="productTable__td" data-label="PRICE">
-                  {product.price}
-                </td>
-                <td className="productTable__td" data-label="AMOUNT">
-                  {product.amount}
-                </td>
-                <td className="productTable__td--actions">
-                  {canView && (
-                    <Button
-                      label="VIEW"
-                      onClick={() => handleViewClick(product)}
-                      modifier="buttons"
-                    />
-                  )}
-                  {canEdit && (
-                    <Button
-                      label="EDIT"
-                      onClick={() => handleEditClick(product)}
-                      modifier="buttons"
-                    />
-                  )}
-                  {canDelete && (
-                    <Button
-                      label="DELETE"
-                      onClick={() => handleDelete(product.id)}
-                      modifier="buttons"
-                    />
-                  )}
-                </td>
+        <div className="productTable">
+          <table className="productTable__table">
+            <thead className="productTable__thead">
+              <tr className="productTable__tr">
+                <th className="productTable__th">ID</th>
+                <th className="productTable__th">BRAND</th>
+                <th className="productTable__th">MODEL</th>
+                <th className="productTable__th">TYPE</th>
+                <th className="productTable__th">PRICE</th>
+                <th className="productTable__th">AMOUNT</th>
+                <th className="productTable__th">
+                  {/* Search input */}
+                  <input
+                    type="text"
+                    value={search}
+                    onChange={(e) => setSearch(e.target.value)}
+                    placeholder="Search..."
+                    className="productTable__search"
+                  />
+                </th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody className="productTable__tbody">
+              {products.map((product) => (
+                <tr className="productTable__tr" key={product.id}>
+                  <td className="productTable__td" data-label="ID">
+                    {product.id}
+                  </td>
+                  <td className="productTable__td" data-label="BRAND">
+                    {product.brand}
+                  </td>
+                  <td className="productTable__td" data-label="MODEL">
+                    {product.model}
+                  </td>
+                  <td className="productTable__td" data-label="TYPE">
+                    {product.type}
+                  </td>
+                  <td className="productTable__td" data-label="PRICE">
+                    {product.price}
+                  </td>
+                  <td className="productTable__td" data-label="AMOUNT">
+                    {product.amount}
+                  </td>
+                  <td className="productTable__td--actions">
+                    {canView && (
+                      <Button
+                        label="VIEW"
+                        onClick={() => handleViewClick(product)}
+                        modifier="buttons"
+                      />
+                    )}
+                    {canEdit && (
+                      <Button
+                        label="EDIT"
+                        onClick={() => handleEditClick(product)}
+                        modifier="buttons"
+                      />
+                    )}
+                    {canDelete && (
+                      <Button
+                        label="DELETE"
+                        onClick={() => handleDelete(product.id)}
+                        modifier="buttons"
+                      />
+                    )}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       )}
     </>
   );

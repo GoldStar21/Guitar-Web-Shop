@@ -91,6 +91,7 @@ const CreateProduct = () => {
                 type="text"
                 value={brand}
                 onChange={(e) => setBrand(e.target.value)}
+                required
               />
             </div>
             <div className="createProduct__fields">
@@ -100,6 +101,7 @@ const CreateProduct = () => {
                 type="text"
                 value={model}
                 onChange={(e) => setModel(e.target.value)}
+                required
               />
             </div>
             <div className="createProduct__fields">
@@ -109,6 +111,7 @@ const CreateProduct = () => {
                 type="text"
                 value={type}
                 onChange={(e) => setType(e.target.value)}
+                required
               />
             </div>
             <div className="createProduct__fields">
@@ -118,6 +121,7 @@ const CreateProduct = () => {
                 type="text"
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}
+                required
               />
             </div>
             <div className="createProduct__fields">
@@ -127,6 +131,7 @@ const CreateProduct = () => {
                 type="number"
                 value={amount}
                 onChange={(e) => setAmount(e.target.value)}
+                required
               />
             </div>
             <div className="createProduct__fields">
@@ -137,6 +142,7 @@ const CreateProduct = () => {
                 multiple
                 accept="image/*"
                 onChange={(e) => setImages(Array.from(e.target.files))}
+                required
               />
             </div>
             <div className="createProduct__buttons">

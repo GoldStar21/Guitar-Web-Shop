@@ -1,3 +1,5 @@
+"use client";
+
 const Button = ({ label, onClick, modifier = "", type = "button" }) => {
   return (
     <button

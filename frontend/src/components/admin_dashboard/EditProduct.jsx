@@ -167,7 +167,7 @@ const EditProduct = ({ product, setEditingProduct, onSave, onCancel }) => {
                 onClick={onCancel}
                 modifier="editButtons"
               />
-              <Button label="SAVE" type="submit" modifier="editButtons" />
+              <Button label="SAVE" type="submit" modifier="editButtonss" />
             </div>
           </form>
         </div>

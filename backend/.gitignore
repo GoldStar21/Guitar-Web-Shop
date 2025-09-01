@@ -32,5 +32,8 @@ build/
 ### VS Code ###
 .vscode/
 
+# user uploads
+backend/uploads/
+
 src/main/resources/application.properties
 

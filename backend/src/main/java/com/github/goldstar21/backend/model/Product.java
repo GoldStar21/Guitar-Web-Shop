@@ -28,12 +28,13 @@ public class Product {
     private String type;
     private BigDecimal price;
     private Integer amount;
+    private String formattedPrice;
 
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
     private List<Images> images = new ArrayList<>();
 
-    // Dodati ovo jebeno
+
 
     // Dodatni getter za imageUrl - vraća URL prve slike ili default
     @JsonProperty("imageUrl")

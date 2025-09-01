@@ -90,6 +90,21 @@
       color: white;
     }
   }
+  &--editButtonss {
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+
+    text-align: center;
+    transition: background-color 0.6s ease;
+    font-size: 17px;
+    font-weight: 500;
+
+    &:hover {
+      background-color: #70a777;
+      color: white;
+    }
+  }
 
   // Create button - CreateProduct.jsx
   &--createProduct {
@@ -123,5 +138,21 @@
     }
   }
 
-  // Mozda kasnije kada se sve ustima postaviti jednake vrijednosti za ovu dugmad, tj. uskladiti ih
+  // Buy button - [type].jsx
+  &--buyProduct {
+    margin: 0 auto; 
+    padding: 6px 10px;
+    font-weight: 500;
+    border: none;
+    border-radius: 4px;
+    background-color: #eee;
+    width: 70%;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #7fda83;
+    }
+  }
+
+ 
 }
