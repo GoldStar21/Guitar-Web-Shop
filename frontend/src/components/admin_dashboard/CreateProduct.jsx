@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import Button from "../Button";
+import Button from "../home_components/Button";
 
 const CreateProduct = () => {
   const [brand, setBrand] = useState("");

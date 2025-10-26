@@ -17,24 +17,32 @@
   }
 
   &__card {
-    flex: 1 1 20%;
+    //flex: 1 1 10%;
+    width: 30%;
     background-color: white;
     text-align: center;
-    border-radius: 50px;
+    border-radius: 12px;
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-decoration: none;
     color: inherit;
 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
     &:hover {
-      transform: translateY(-5px);
-      box-shadow: 20px 30px 16px rgba(0, 0, 0, 0.15);
+      transform: translateY(-15px) scale(0.9);
+      box-shadow: 0 0 16px rgba(0, 0, 0, 0.55);
     }
 
     &__image {
-      width: 70%;
+      margin-top: 15%;
+      width: 80%;
+      max-height: 480px;
       object-fit: cover;
-      border-radius: 50px;
+      border-radius: 12px;
     }
 
     &__title {
@@ -57,9 +65,9 @@
       width: 65%;
 
       &__image {
-        width: 65%;
+        width: 60%;
         object-fit: cover;
-        border-radius: 50px;
+        border-radius: 12px;
       }
 
       &__title {
@@ -69,19 +77,19 @@
     }
   }
 
-  @include respondBetween(0, 700px) {
+  @include respondBetween(0, 430px) {
     &__heading {
       text-align: center;
     }
 
     &__card {
-      width: 70%;
+      width: 80%;
       border-radius: 30px;
 
       &__image {
-        width: 65%;
+        width: 75%;
         object-fit: cover;
-        border-radius: 30px;
+        border-radius: 12px;
       }
 
       &__title {

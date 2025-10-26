@@ -1,0 +1,57 @@
+.cancelPayment {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f28b82;
+
+  &__card {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+  }
+
+  &__icon {
+    margin-bottom: 1.5rem;
+
+    &--check {
+      color: #c52222;
+    }
+  }
+
+  &__title {
+    font-weight: 500;
+    font-size: 35px;
+  }
+
+  &__message {
+    font-weight: 300;
+    font-size: 20px;
+  }
+
+  @include respondBetween(0, $breakpoint-tablet) {
+    &__icon {
+      margin-bottom: 1rem;
+    }
+
+    &__title {
+      font-weight: 500;
+      font-size: 25px;
+    }
+
+    &__message {
+      font-weight: 300;
+      font-size: 15px;
+    }
+  }
+
+  @include respondBetween(0, 430px) {
+    &__card {
+      width: 70%;
+    }
+  }
+}

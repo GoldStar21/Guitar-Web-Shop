@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import ViewProduct from "./ViewProduct";
 import EditProduct from "./EditProduct";
 import AuthGuard from "./AuthGuard";
-import Button from "../Button";
+import Button from "../home_components/Button";
 
 const Table = ({ canEdit = true, canDelete = true, canView = true }) => {
   const [products, setProducts] = useState([]);

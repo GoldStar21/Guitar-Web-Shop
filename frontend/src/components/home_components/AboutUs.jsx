@@ -1,25 +1,23 @@
-import { Licorice } from "next/font/google";
 import React, { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
-// const licorice = Licorice({ subsets: ["latin"], weight: "400" });
 
 const AboutUs = () => {
   const imageRef = useRef(null);
 
   useEffect(() => {
-    // Animation create
+    // Animation
     gsap.fromTo(
       imageRef.current,
       { opacity: 0, y: 100 },
       {
         opacity: 1,
         y: 0,
-        duration: 5,
+        duration: 10,
         ease: "power3.out",
-        delay: 0.5,
+        delay: 1.8,
         scrollTrigger: {
           trigger: imageRef.current,
           start: "top 70%",

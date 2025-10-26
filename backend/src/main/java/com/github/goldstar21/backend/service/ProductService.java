@@ -144,4 +144,15 @@ public class ProductService {
         return results;
     }
 
+
+    public void decreaseQuantity(Long id) {
+        Product product = productRepository.findById(id).orElseThrow(() -> new RuntimeException("Product not found"));
+
+        if(product.getAmount() > 0 ) {
+            product.setAmount(product.getAmount() - 1);
+            productRepository.save(product);
+        }else {
+            throw new RuntimeException("Product out of stock");
+        }
+    }
 }

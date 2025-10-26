@@ -92,5 +92,12 @@ public class ProductController {
         return productService.searchProducts(brand, model);
     }
 
+    @PutMapping("/{id}/decrease")
+    public ResponseEntity<String> decreaseProductQuantity(@PathVariable Long id) {
+        productService.decreaseQuantity(id);
+        return ResponseEntity.ok("Quantity decreased");
+    }
+
+
 
 }

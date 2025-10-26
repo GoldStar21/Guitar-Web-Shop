@@ -1,9 +1,9 @@
-import Hero from "../components/Hero";
-import AboutUs from "@/components/AboutUs";
-import Shop from "@/components/Shop";
-import FAQ from "@/components/Faq";
-import Contact from "@/components/Contact";
-import Footer from "../components/Footer";
+import Hero from "../components/home_components/Hero";
+import AboutUs from "@/components/home_components/AboutUs";
+import Shop from "@/components/home_components/Shop";
+import FAQ from "@/components/home_components/Faq";
+import Contact from "@/components/home_components/Contact";
+import Footer from "../components/home_components/Footer";
 
 const HomePage = () => {
   return (

@@ -1,0 +1,108 @@
+.cardPanel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 600px;
+  height: 100vh;
+  background: #fff;
+  border-left: 2px solid #ddd;
+  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  z-index: 2000;
+
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+
+  &.open {
+    transform: translateX(0);
+  }
+
+  display: flex;
+  flex-direction: column;
+
+  &__head {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+  }
+
+  &__close {
+    font-size: 30px;
+    cursor: pointer;
+
+    &:hover {
+      color: red;
+    }
+  }
+
+  &__title {
+    text-align: center;
+    font-size: 25px;
+  }
+
+  &__products {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    padding: 5px;
+  }
+
+  &__p {
+    text-align: center;
+    font-size: 20px;
+  }
+
+  &__liList {
+    margin-bottom: 12px;
+    font-size: 15px;
+    font-weight: 500;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__deleteProduct {
+    font-size: 20px;
+    cursor: pointer;
+
+    &:hover {
+      color: red;
+    }
+  }
+
+  &__total {
+    font-size: 28px;
+    text-align: center;
+    font-weight: 500;
+  }
+
+  @include respondBetween(0, $breakpoint-tablet) {
+    
+    width: 90%;
+
+    display: flex;
+    flex-direction: column;
+
+    &__close {
+      font-size: 25px;
+    }
+
+    &__title {
+      font-size: 20px;
+    }
+
+    &__p {
+      text-align: center;
+      font-size: 20px;
+    }
+
+    &__deleteProduct {
+      font-size: 20px;
+    }
+
+    &__total {
+      font-size: 20px;
+    }
+  }
+}

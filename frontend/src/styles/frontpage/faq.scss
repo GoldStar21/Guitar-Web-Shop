@@ -1,16 +1,14 @@
 .faq {
-
-  padding: 5rem 0;
-
   &__title {
     text-align: center;
     font-size: 35px;
-    padding-bottom: 1rem;
+    padding-bottom: 3rem;
   }
 
   &__content {
     display: flex;
     gap: 1.5rem;
+    margin-bottom: 1rem;
 
     // Two rows on wider screens
     @media (min-width: 768px) {
@@ -30,7 +28,7 @@
     background: none;
     border: none;
     cursor: pointer;
-    font-size: 23px;
+    font-size: 22px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -57,7 +55,7 @@
   &__answer {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease;
+    transition: max-height 0.7s ease;
 
     &--open {
       max-height: 200px;
@@ -80,16 +78,25 @@
     &__content {
       flex-direction: column;
     }
-  }
-
-  @include respondBetween(0, $breakpoint-mobile) {
     &__question {
       font-size: 18px;
     }
 
     &__answer {
       p {
-        font-size: 18px;
+        font-size: 20px;
+      }
+    }
+  }
+
+  @include respondBetween(0, $breakpoint-mobile) {
+    &__question {
+      font-size: 12px;
+    }
+
+    &__answer {
+      p {
+        font-size: 14px;
       }
     }
   }

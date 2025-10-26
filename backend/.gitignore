@@ -32,7 +32,10 @@ build/
 ### VS Code ###
 .vscode/
 
-# user uploads
+# Environment files
+.env
+
+# User uploads
 backend/uploads/
 
 src/main/resources/application.properties

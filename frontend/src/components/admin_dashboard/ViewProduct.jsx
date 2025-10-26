@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Button from "../Button";
+import Button from "../home_components/Button";
 
 const ViewProduct = ({ product, onBack }) => {
   const [currentIndex, setCurrentIndex] = useState(0);

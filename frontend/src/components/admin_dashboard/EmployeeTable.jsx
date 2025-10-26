@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Button from "../Button";
+import Button from "../home_components/Button";
 
 const EmployeeTable = () => {
   const [users, setUsers] = useState([]);

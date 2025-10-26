@@ -140,7 +140,7 @@
 
   // Buy button - [type].jsx
   &--buyProduct {
-    margin: 0 auto; 
+    margin: 0 auto;
     padding: 6px 10px;
     font-weight: 500;
     border: none;
@@ -154,5 +154,24 @@
     }
   }
 
- 
+  // Pay Button
+  &--buyProductStripe {
+    font-size: 15px;
+    margin: 15px auto;
+    width: 40%;
+    height: 2.7rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    border: none;
+    border-radius: 10px;
+    background-color: #eee;
+    transition: background-color 0.6s ease;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #87dd6d;
+    }
+  }
 }

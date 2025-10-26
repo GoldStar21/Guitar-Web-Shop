@@ -30,13 +30,13 @@
     }
   }
 
-  @include respondBetween(0, $breakpoint-tablet) {
+  @include respondBetween(400px, $breakpoint-tablet) {
     &__content {
       margin: 32px 0;
 
       &__right {
         &__title {
-          font-size: 32px;
+          font-size: 29px;
         }
 
         &__description {
@@ -57,6 +57,20 @@
       &__right {
         width: 100%;
         text-align: center;
+      }
+    }
+  }
+
+  @include respondBetween(0, 400px) {
+    &__content {
+      &__right {
+        &__title {
+          font-size: 23px;
+        }
+
+        &__description {
+          font-size: 16px;
+        }
       }
     }
   }

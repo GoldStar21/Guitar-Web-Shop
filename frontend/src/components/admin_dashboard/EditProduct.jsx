@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Button from "../Button";
+import Button from "../home_components/Button";
 
 const fields = [
   { label: "BRAND", name: "brand", type: "text" },

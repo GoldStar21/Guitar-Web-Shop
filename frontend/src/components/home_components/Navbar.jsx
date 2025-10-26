@@ -16,7 +16,7 @@ const Navbar = () => {
     {
       href: "/login",
       label: "Login",
-      className: "navbar__content__links__link--login",
+      className: "navbar__link--login",
       newTab: true,
     },
   ];
@@ -25,24 +25,22 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="c-container">
         <div className="navbar__content">
-          <div className="navbar__content__logo">
-            <img
-              src="/logo_image.svg"
-              alt="Logo"
-              className="navbar__content__logo__image"
-            />
-            <h1 className="navbar__content__logo__title">Guitar Heaven</h1>
+          <div className="navbar__logo">
+            <Link href="/">
+              <img src="/logo_image.svg" alt="Logo" className="navbar__image" />
+            </Link>
+            <h1 className="navbar__title">Guitar Heaven</h1>
           </div>
           <div
-            className={`navbar__content__links ${
-              isMobileOpen ? "navbar__content__links--active" : ""
+            className={`navbar__links ${
+              isMobileOpen ? "navbar__links--active" : ""
             }`}
           >
             {navLinks.map((link, index) => (
               <Link
                 key={index}
                 href={link.href}
-                className={`navbar__content__links__link ${link.className}`}
+                className={`navbar__link ${link.className}`}
                 target={link.newTab ? "_blank" : undefined}
                 rel={link.newTab ? "noopener noreferrer" : undefined}
               >
@@ -52,14 +50,14 @@ const Navbar = () => {
             <img
               src="/icon-close.svg"
               alt="Hamburger icon"
-              className="navbar__content__links__icon"
+              className="navbar__icon"
               onClick={toggleMenu}
             />
           </div>
           <img
             src="/icon-hamburger.svg"
             alt="Hamburger icon"
-            className="navbar__content__hamburger"
+            className="navbar__hamburger"
             onClick={toggleMenu}
           />
         </div>
